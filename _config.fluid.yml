@@ -2,8 +2,8 @@
 # 完整配置见: https://hexo.fluid-dev.com/docs/guide/
 
 # 网站图标（浏览器标签页、收藏夹等）
-favicon: /img/favicon.svg
-apple_touch_icon: /img/favicon.svg
+favicon: /img/favicon.png
+apple_touch_icon: /img/favicon.png
 
 # 导航栏
 navbar:

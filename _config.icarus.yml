@@ -2,12 +2,14 @@
 version: 5.1.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
-# Path or URL to the website's logo
-logo: /img/logo.svg
+# Site title (shown in header next to logo)
+title: Gxlself
+# Path or URL to the website's logo (header icon)
+logo: /img/favicon.png
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: /img/favicon.svg
+    favicon: /img/favicon.png
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -29,11 +31,15 @@ head:
         icons:
             -
                 # The path to the image file
-                src: ''
+                src: /img/favicon.png
                 # A string containing space-separated image dimensions
-                sizes: ''
+                sizes: '192x192'
                 # A hint as to the media type of the image
-                type: 
+                type: image/png
+            -
+                src: /img/favicon.png
+                sizes: '512x512'
+                type: image/png 
     # Open Graph metadata
     # https://hexo.io/docs/helpers.html#open-graph
     open_graph:
@@ -158,47 +164,18 @@ search:
 comment:
     type: 
     shortname: ''
-# Donate plugin configurations
-# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
+# Donate plugin configurations（about 页仅展示微信、支付宝收款）
 donates:
-    # "Afdian.net" donate button configurations
-    -
-        type: afdian
-        # URL to the "Afdian.net" personal page
-        url: ''
-    # Alipay donate button configurations
-    -
-        type: alipay
-        # Alipay qrcode image URL
-        qrcode: ''
-    # "Buy me a coffee" donate button configurations
-    -
-        type: buymeacoffee
-        # URL to the "Buy me a coffee" page
-        url: ''
-    # Patreon donate button configurations
-    -
-        type: patreon
-        # URL to the Patreon page
-        url: ''
-    # Paypal donate button configurations
-    -
-        type: paypal
-        # Paypal business ID or email address
-        business: ''
-        # Currency code
-        currency_code: USD
-    # Wechat donate button configurations
-    -
-        type: wechat
-        # Wechat qrcode image URL
-        qrcode: ''
+    - type: wechat
+      qrcode: /img/wechat-qrcode.png
+    - type: alipay
+      qrcode: /img/alipay-qrcode.png
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
+# 文章页分享（ShareThis）
 share:
     type: sharethis
-    # URL to the ShareThis share plugin script
-    install_url: ''
+    install_url: 'https://platform-api.sharethis.com/js/sharethis.js#property=69a5b824e9c59cebcb23bf4a&product=sop'
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
@@ -220,7 +197,7 @@ widgets:
         author: Gxlself
         author_title: 个人创意开发者
         location: 
-        avatar: /img/favicon.svg
+        avatar: /img/favicon.png
         avatar_rounded: true
         gravatar: 
         follow_link: https://github.com/gxlself
@@ -288,12 +265,13 @@ widgets:
         description: 
         # Feedburner ID
         feedburner_id: ''
-    # Google AdSense 广告（侧边栏展示；slot_id 可选，在 AdSense 后台创建广告单元后填入可在固定位置展示）
+    # Google AdSense 广告（侧边栏展示；client_id 为发布商 ID，slot_id 为广告单元 ID，二者必填否则会显示错误提示）
+    # slot_id 获取：AdSense 后台 → 广告 → 按广告单元 → 创建/选择展示广告单元 → 获取代码 → 代码中的 data-ad-slot="xxxxxxxxxx" 即 slot_id
     -
         position: right
         type: adsense
         client_id: 'ca-pub-3264212333548066'
-        slot_id: ''
+        slot_id: '7871870988'   # 请替换为你在 AdSense 创建的广告单元 ID（data-ad-slot 的值）
     # Follow.it email subscription widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar

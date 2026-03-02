@@ -11,8 +11,8 @@ author: Gxlself
 language: zh-CN
 timezone: Asia/Shanghai
 
-# URL（主站 gxlself.com，博客挂在 /blog/ 下）
-url: https://gxlself.com
+# URL（主站 gxlself.com，博客挂在 /blog/ 下；url 需含 /blog 以便 full_url/permalink 正确）
+url: https://gxlself.com/blog
 root: /blog/
 permalink: blog/:year/:month/:day/:title/
 permalink_defaults:
