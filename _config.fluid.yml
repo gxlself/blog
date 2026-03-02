@@ -1,0 +1,47 @@
+# Fluid 主题配置（覆盖项，仅写需要修改的部分）
+# 完整配置见: https://hexo.fluid-dev.com/docs/guide/
+
+# 网站图标（浏览器标签页、收藏夹等）
+favicon: /img/favicon.svg
+apple_touch_icon: /img/favicon.svg
+
+# 导航栏
+navbar:
+  blog_title: ""   # 留空则使用主配置 _config.yml 的 title
+  menu:
+    - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
+    - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
+    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
+    - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
+    - { key: "about", link: "/about/", icon: "iconfont icon-user-fill", name: "关于" }
+
+# 首页（副标题/标语）
+index:
+  banner_img: /img/default.png
+  slogan:
+    enable: true
+    text: "Gxlself: Crafting Digital Excellence."
+
+# 关于页：简介、联系方式与公众号二维码
+about:
+  enable: true
+  name: "Gxlself"
+  intro: |
+    个人创意开发者
+  icons:
+    - { class: "iconfont icon-mail", link: "mailto:gxlself@gmail.com", tip: "Email" }
+    - { class: "iconfont icon-github-fill", link: "https://github.com/gxlself", tip: "GitHub" }
+    - { class: "iconfont icon-link-fill", link: "https://discord.gg/xEeV8PrK", tip: "Discord" }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/img/wechat-qrcode.png", tip: "公众号" }
+
+# 页脚：仅展示备案号并跳转指定链接
+footer:
+  content: '<div class="beian"><a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="nofollow noopener">晋ICP备17010620号</a></div>'
+  beian:
+    enable: false
+
+# 搜索（需安装 hexo-generator-search）
+search:
+  enable: true
+  path: /local-search.xml
+  field: post

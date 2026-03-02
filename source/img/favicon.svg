@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+  <defs>
+    <linearGradient id="golden-circuit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE55C"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="23" fill="#0A192F" stroke="url(#golden-circuit)" stroke-width="1.5"/>
+  <text x="24" y="36" text-anchor="middle" fill="url(#golden-circuit)" font-size="30" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">G</text>
+  <path d="M8 24h6M34 24h6M24 8v6M24 34v6" stroke="url(#golden-circuit)" stroke-width="1" stroke-opacity="0.6" stroke-linecap="round"/>
+  <path d="M14 14l4 4M30 30l4 4M30 14l-4 4M14 30l-4 4" stroke="url(#golden-circuit)" stroke-width="0.75" stroke-opacity="0.4" stroke-linecap="round"/>
+</svg>
