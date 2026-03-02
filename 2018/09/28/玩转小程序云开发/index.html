@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="你的名字">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。 1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩转小程序云开发">
+<meta property="og:url" content="http://example.com/2018/09/28/%E7%8E%A9%E8%BD%AC%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="前言好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。 1.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/06bce6a378.png">
+<meta property="og:image" content="http://example.com/images/43f80bf697.png">
+<meta property="og:image" content="http://example.com/images/259d10e04a.png">
+<meta property="og:image" content="http://example.com/images/a7c076febb.png">
+<meta property="og:image" content="http://example.com/images/e83fc74f40.png">
+<meta property="og:image" content="http://example.com/images/da7ec32786.png">
+<meta property="og:image" content="http://example.com/images/551e0d7b36.png">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/5427558a18.png">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/b9f75e92a6.png">
+<meta property="og:image" content="http://example.com/images/07079b9363.png">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/48304ba5e6.gif">
+<meta property="og:image" content="http://example.com/images/b8a60463ff.png">
+<meta property="article:published_time" content="2018-09-28T08:35:13.000Z">
+<meta property="article:modified_time" content="2026-03-02T13:50:43.715Z">
+<meta property="article:author" content="你的名字">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/06bce6a378.png">
+  
+  
+  
+  <title>玩转小程序云开发 - 我的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/%E5%85%B3%E4%BA%8E/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="玩转小程序云开发"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-09-28 16:35" pubdate>
+          2018年9月28日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">玩转小程序云开发</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。"><a href="#好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。" class="headerlink" title="好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。"></a>好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。</h3><hr>
+<h3 id="1-先来玩玩云函数"><a href="#1-先来玩玩云函数" class="headerlink" title="1. 先来玩玩云函数"></a>1. 先来玩玩云函数</h3><p>云函数是什么呢？估计很多玩过阿里云以及腾讯云的人已经对这个名词早已很熟悉。一种无需服务器的执行环境，平台会给出它支持的语言以及核心的代码，即可以在服务商提供的设施上弹性、安全的运行。这个很大程度上省却了很多开发部署工作，用过的都说好（假的）。 小程序内部提供了专门用于云函数调用的API，而我们只需要在云函数内将每次获取到的appId以及openId不再需要后台经过一系列鉴定加密就可以获取到可信任的用户登录状态！！！这个是最主要的，再之前利用Bmob也好，自己开发也好，这个是必备的，具体前往微信登录流程查看。现在利用小程序本身的云函数，省去了大量工作，真的是个人开发者的福音。 废话这么多，赶紧开始第一个云函数的添加以及调用吧 —-&gt;</p>
+<hr>
+<p>  配置云开发： 第一步：?project.config.json?中进行添加字段?”cloudfunctionRoot”: “cloudfunctions&#x2F;“??这个字段主要是为了指定存放云函数的文件夹?”cloudfunctions&#x2F;“?<img src="/images/06bce6a378.png" srcset="/img/loading.gif" lazyload> 第二步：?app.json?中添加?”cloud”: true?指定是云开发模式 <img src="/images/43f80bf697.png" srcset="/img/loading.gif" lazyload> 第三步： 添加云函数 <img src="/images/259d10e04a.png" srcset="/img/loading.gif" lazyload> 第四步：添加对应的函数后，会下载依赖，这一步玩过node及npm的都知道，就是下载依赖，现在下载的是微信小程序官方的sdk。。。 <img src="/images/a7c076febb.png" srcset="/img/loading.gif" lazyload><a target="_blank" rel="noopener" href="http://https//img2018.cnblogs.com/blog/1333487/201809/1333487-20180928231832055-537545509.png">http://https://img2018.cnblogs.com/blog/1333487/201809/1333487-20180928231832055-537545509.png</a> 等下载完成后，点开云开发控制台的云函数一栏就会发现函数名称已经有了test这个云函数了。。。具体看下图所示： <img src="/images/e83fc74f40.png" srcset="/img/loading.gif" lazyload> 这个test云函数就是我们刚刚添加的云函数，此时在开发者工具中打开test目录下的index.js文件，就可以进行返回我们需要返回的内容。。。如下：测试 <img src="/images/da7ec32786.png" srcset="/img/loading.gif" lazyload> 这里如果是利用了获取授权的按钮之后就会在return中返回用户登录后的openId和appId，所以我们就return默认的event对象以及context（上下文）对象。主要是为了看看小程序默认提供的对象包含了什么，我们可以用什么？？？ 保存完了，还不够因为这个云函数我们都说了是小程序提供的服务平台来运行我们做的类似于接口的函数，所以我们必须得上传，具体看下图： <img src="/images/551e0d7b36.png" srcset="/img/loading.gif" lazyload> 等待上传完毕，在pages下index.wxml中需要做的是</p>
+<p><button open-type="getUserInfo" bindgetuserinfo="getUserInfgo">授权登录</button></p>
+<p>由于获取授权需要配合点击后js的操作，所以在index.js中添加对应的getUserInfo的方法，并且注意这里的wx.cloud.callFunction方法，因为这是调用云函数的方法。不可忽视~~~</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p>getUserInfo: function(e){<br>    wx.cloud.callFunction({<br>      name: “test”,&#x2F;&#x2F;这里填写云函数的名字<br>      data: {<br>        userInfo: e &#x2F;&#x2F; 这里是把参数e直接传给test函数处理<br>      },<br>      success: res &#x3D;&gt; {<br>        console.log(res) &#x2F;&#x2F; 返回的文本如下图所示：<br>      },<br>      fail: err &#x3D;&gt; {<br>        console.log(err)<br>      }<br>    })<br>  }</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p><img src="/images/5427558a18.png" srcset="/img/loading.gif" lazyload> 可以看到输出的信息中会返回用户的openId以及appId还有对应云函数认证的信息。。。具体的实际可以自行测试查看，这里不做进一步探测… 这里云函数已经相信大家会玩了。。。就不再做其他的一一测试以及讲解。</p>
+<hr>
+<h3 id="2-数据库"><a href="#2-数据库" class="headerlink" title="2. 数据库"></a>2. 数据库</h3><p>对于数据库我相信大家都早已用的不能再熟悉，mySql， SQLServer， Oracle， MongoDb， indexDb等等。。。。接下来带着大家玩玩这个微信云开发提供的数据库。。。 云开发提供的应该是类似于NoSql类型的数据库，存储的是JSON对象。一个数据库也是多个集合（相思雨MongoDb） 接下来让我们开始快乐的使用这个数据库吧~~~</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p>&#x2F;&#x2F;首先  要实例一个数据库对象</p>
+<p>let db &#x3D; wx.cloud.database();<br>db.collection(‘counters’).add({<br>      data: {<br>        count: 1<br>      },<br>      success: res &#x3D;&gt; {<br>        &#x2F;&#x2F; 在返回结果中会包含新创建的记录的 _id<br>        this.setData({<br>          counterId: res._id,<br>          count: 1<br>        })<br>        wx.showToast({<br>          title: ‘新增记录成功’,<br>        })<br>        console.log(‘[数据库] [新增记录] 成功，记录 _id: ‘, res._id)<br>      },<br>      fail: err &#x3D;&gt; {<br>        wx.showToast({<br>          icon: ‘none’,<br>          title: ‘新增记录失败’<br>        })<br>        console.error(‘[数据库] [新增记录] 失败：’, err)<br>      }<br>    })</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p><img src="/images/b9f75e92a6.png" srcset="/img/loading.gif" lazyload> 这是利用添加数据的方法进行添加的数据，此时可以在云开发控制台看到对应得数据：下图—》 <img src="/images/07079b9363.png" srcset="/img/loading.gif" lazyload> 此时可以看到插入进去的数据。。。接下来可以看看增删改查的其余操作：</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p>&#x2F;&#x2F;查询数据：<br>const db &#x3D; wx.cloud.database()<br>    &#x2F;&#x2F; 查询当前用户所有的 counters<br>    db.collection(‘counters’).where({<br>      _openid: this.data.openid<br>    }).get({<br>      success: res &#x3D;&gt; {<br>        this.setData({<br>          queryResult: JSON.stringify(res.data, null, 2)<br>        })<br>        console.log(‘[数据库] [查询记录] 成功: ‘, res)<br>      },<br>      fail: err &#x3D;&gt; {<br>        wx.showToast({<br>          icon: ‘none’,<br>          title: ‘查询记录失败’<br>        })<br>        console.error(‘[数据库] [查询记录] 失败：’, err)<br>      }<br>})</p>
+<p>&#x2F;&#x2F; 修改数据<br>const db &#x3D; wx.cloud.database()<br>    const newCount &#x3D; this.data.count + 1<br>    db.collection(‘counters’).doc(this.data.counterId).update({<br>      data: {<br>        count: newCount<br>      },<br>      success: res &#x3D;&gt; {<br>        this.setData({<br>          count: newCount<br>        })<br>      },<br>      fail: err &#x3D;&gt; {<br>        icon: ‘none’,<br>        console.error(‘[数据库] [更新记录] 失败：’, err)<br>      }<br> })    </p>
+<p>&#x2F;&#x2F;  删除数据<br>const db &#x3D; wx.cloud.database()<br>      db.collection(‘counters’).doc(this.data.counterId).remove({<br>        success: res &#x3D;&gt; {<br>          wx.showToast({<br>            title: ‘删除成功’,<br>          })<br>          this.setData({<br>            counterId: ‘’,<br>            count: null,<br>          })<br>        },<br>        fail: err &#x3D;&gt; {<br>          wx.showToast({<br>            icon: ‘none’,<br>            title: ‘删除失败’,<br>          })<br>          console.error(‘[数据库] [删除记录] 失败：’, err)<br>        }<br> })</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p>当然，在数据库操作之前需要利用云函数login获取对应的openId， 获取方法请细看上方云函数test部分。。。</p>
+<hr>
+<p> </p>
+<h3 id="3-存储部分"><a href="#3-存储部分" class="headerlink" title="3. 存储部分"></a>3. 存储部分</h3><p>小程序只有2M的空间，个人开发要么将图片放在这小小的2M内，要么自己配置https证书的域名，再要么利用github将自己的域名免费转为https，不会玩的可以私信我，我可以再单独写一篇将自己的域名利用github穿https证书的方法，哈哈（略过）。将图片放github不用自己的域名也行，但是利用github就要忍受它的网速慢以及随时被墙的可能性。。。 现在我们来用云开发提供的存储：</p>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p>wx.chooseImage({<br>      count: 1,<br>      sizeType: [‘compressed’],<br>      sourceType: [‘album’, ‘camera’],<br>      success: function (res) {</p>
+<pre><code>    wx.showLoading(&#123;
+      title: &#39;上传中&#39;,
+    &#125;)
+
+    const filePath = res.tempFilePaths\[0\]
+    
+    // 上传图片
+    const cloudPath = &#39;my-image&#39; + filePath.match(/\\.\[^.\]+?$/)\[0\]
+    wx.cloud.uploadFile(&#123;
+      cloudPath,
+      filePath,
+      success: res =&gt; &#123;
+        console.log(&#39;\[上传文件\] 成功：&#39;, res)
+
+        let fileId = res.fileID
+        let cloudPath = cloudPath
+        let imagePath = filePath
+        
+        console.log( fileId )
+        console.log( cloudPath )
+       console.log( imagePath )
+      &#125;,
+      fail: e =&gt; &#123;
+        console.error(&#39;\[上传文件\] 失败：&#39;, e)
+        wx.showToast(&#123;
+          icon: &#39;none&#39;,
+          title: &#39;上传失败&#39;,
+        &#125;)
+      &#125;,
+      complete: () =&gt; &#123;
+        wx.hideLoading()
+      &#125;
+    &#125;)
+
+  &#125;,
+  fail: e =&gt; &#123;
+    console.error(e)
+  &#125;
+&#125;)
+</code></pre>
+<p><img src="/images/48304ba5e6.gif" srcset="/img/loading.gif" lazyload alt="复制代码"></p>
+<p>代码已经奉上，上传成功后再跑去云开发控制台查看一番~~~ <img src="/images/b8a60463ff.png" srcset="/img/loading.gif" lazyload> 好了，云开发已经基本上完成，当然云存储也可以存储json文件，然后请求静态数据~~~看自己的需要了。 云开发是将前端开发者摆到了更重要的地位，不再很依赖于服务端。这真的是一个福利~~~~ OVER~~SLEEP!!!</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="category-chain-item">小程序</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>玩转小程序云开发</div>
+      <div>http://example.com/2018/09/28/玩转小程序云开发/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>你的名字</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年9月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/29/grpc-web%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E8%90%BD%E5%9C%B0%E4%BD%BF%E7%94%A8/" title="gRpc-web在项目中的落地使用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">gRpc-web在项目中的落地使用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/09/24/h5%E4%B8%AD%E7%9A%84%E6%A1%8C%E9%9D%A2%E9%80%9A%E7%9F%A5notification/" title="H5中的桌面通知Notification">
+                        <span class="hidden-mobile">H5中的桌面通知Notification</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

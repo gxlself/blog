@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="你的名字">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="gRPC概念 gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP&#x2F;2 设计。目前提供 C、Java 和 Go 语言版本，分别是：grpc, grpc-java, grpc-go. 其中 C 版本支持 C, C++, Node.js, Python, Ruby, Objective-C, PHP 和 C# 支持. 业务背景后端项目繁多，算法部门要将旧有项目进行gRPC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gRpc-web在项目中的落地使用">
+<meta property="og:url" content="http://example.com/2020/08/29/grpc-web%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E8%90%BD%E5%9C%B0%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="gRPC概念 gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP&#x2F;2 设计。目前提供 C、Java 和 Go 语言版本，分别是：grpc, grpc-java, grpc-go. 其中 C 版本支持 C, C++, Node.js, Python, Ruby, Objective-C, PHP 和 C# 支持. 业务背景后端项目繁多，算法部门要将旧有项目进行gRPC">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-29T05:40:33.000Z">
+<meta property="article:modified_time" content="2026-03-02T14:11:38.593Z">
+<meta property="article:author" content="你的名字">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>gRpc-web在项目中的落地使用 - 我的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/%E5%85%B3%E4%BA%8E/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="gRpc-web在项目中的落地使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-08-29 13:40" pubdate>
+          2020年8月29日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">gRpc-web在项目中的落地使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="gRPC概念"><a href="#gRPC概念" class="headerlink" title="gRPC概念"></a>gRPC概念</h1><hr>
+<p>gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP&#x2F;2 设计。目前提供 C、Java 和 Go 语言版本，分别是：grpc, grpc-java, grpc-go. 其中 C 版本支持 C, C++, Node.js, Python, Ruby, Objective-C, PHP 和 C# 支持.</p>
+<h2 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h2><p>后端项目繁多，算法部门要将旧有项目进行gRPC化，使用gRPC能够高效的在服务端间进行通信，所以，为了配合后端的gRPC更改，前端也使用gRPC-web，进行开发，与后端进行请求。 第一次接到这个需求，便开始了大量的gRPC的文档探索，以及将github的两个gRPC-web项目进行clone，然后深读代码，并进行尝试。项目使用react+antd+typescript全新搭建，按着文档进行依赖下载，也安装了go，本着自己完全跑一遍的心态试了一次，发现，这个项目过于久老，有个go的依赖一直出错。所以放弃了对这个本地调试，跑一遍demo的心态。 后端大哥本身是开发Go的，所以，他电脑装的比较齐全，提前踩好坑进行开发了，定义了一堆PB文件，然后开始发给我生成好的对应的ts以及js文件，这就让我不用再去纠结使用grpc github的仓库进行启动，并去自己操作一遍。   然后，开始开心的前端踩坑时刻，文档估计很久没更新了，使用的grpc-web库是0.4.0的版本，以下是我从官网拉过来的依赖文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;grpc-web-commonjs-example&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;google-protobuf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^3.6.1&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;grpc-web&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^0.4.0&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;devDependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;browserify&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^16.2.2&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;webpack&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^4.16.5&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;webpack-cli&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^3.1.0&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>前面也说了，这个文档大概很久没更新了，所以我安装后调用grpc的时候一直报错，百思不得其姐，只能在issue中查找对应的信息，这方面，国内项目看起来几乎没人使用，都是外国大哥们在使用，所以找的也是比较费力，总算是在茫茫issue中一眼看中了一个解答，那就是使用新的grpc-web库进行处理，这让茫然的我看到了一丝丝希望，果断将项目中的grpc-web库更新到了1.0.0</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;dependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;google-protobuf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^3.6.1&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;grpc-web&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^1.0.0&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>终于不负我所寄托，这次终于是接通了，让人欣喜。</p>
+<h2 id="grpc-web的使用"><a href="#grpc-web的使用" class="headerlink" title="grpc-web的使用"></a>grpc-web的使用</h2><p>使用方法主要是针对PB文件展开，后端生成的PB文件包含：</p>
+<ol>
+<li>定义方法，属性的PB文件</li>
+<li>定义请求client请求的PB文件</li>
+</ol>
+<p>所以封装请求，主要是依靠将定义请求的PB文件进行导入，并按需处理</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">// 这是生成的client请求PB文件</span><br>import * <span class="hljs-keyword">as</span> grpcWeb <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;grpc-web&#x27;</span>;<br>import * <span class="hljs-keyword">as</span> common_pb <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./common_pb&#x27;</span>;<br>import &#123; UserLogin &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./bisys_pb&#x27;</span>;<br><span class="hljs-comment">// 请求实体</span><br>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserBehaviorClient</span> </span>&#123; <br>  <span class="hljs-title function_ invoke__">constructor</span> (<span class="hljs-attr">hostname</span>: <span class="hljs-keyword">string</span>,<br>               credentials?: <span class="hljs-literal">null</span>  &#123; [<span class="hljs-attr">index</span>: <span class="hljs-keyword">string</span>]: <span class="hljs-keyword">string</span>; &#125;,<br>               options?: <span class="hljs-literal">null</span>  &#123; [<span class="hljs-attr">index</span>: <span class="hljs-keyword">string</span>]: <span class="hljs-keyword">string</span>; &#125;);<br><br>  <span class="hljs-title function_ invoke__">login</span>(<br>    <span class="hljs-attr">request</span>: UserLogin, // 请求参为UserLogin <br>    <span class="hljs-attr">metadata</span>: grpcWeb.Metadata  undefined,<br>    <span class="hljs-attr">callback</span>: (<span class="hljs-attr">err</span>: grpcWeb.<span class="hljs-built_in">Error</span>,<br>               <span class="hljs-attr">response</span>: RespLoginedMsg) =&gt;; <span class="hljs-keyword">void</span><br>  ): grpcWeb.ClientReadableStream;<br>&#125;<br><br><br><span class="hljs-comment">//?这是定义请求参的PB文件，请求参是 UserLogin 对象</span><br>import * <span class="hljs-keyword">as</span> jspb <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;google-protobuf&quot;</span><br>import * <span class="hljs-keyword">as</span> common_pb <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./common_pb&#x27;</span>;<br><br>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserLogin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">jspb</span>.<span class="hljs-title">Message</span> </span>&#123;<br>  <span class="hljs-title function_ invoke__">getAccount</span>(): <span class="hljs-keyword">string</span>;<br>  <span class="hljs-title function_ invoke__">setAccount</span>(<span class="hljs-attr">value</span>: <span class="hljs-keyword">string</span>): UserLogin;<br><br>  <span class="hljs-title function_ invoke__">getPassword</span>(): <span class="hljs-keyword">string</span>;<br>  <span class="hljs-title function_ invoke__">setPassword</span>(<span class="hljs-attr">value</span>: <span class="hljs-keyword">string</span>): UserLogin;<br><br>  <span class="hljs-title function_ invoke__">getToken</span>(): <span class="hljs-keyword">string</span>;<br>  <span class="hljs-title function_ invoke__">setToken</span>(<span class="hljs-attr">value</span>: <span class="hljs-keyword">string</span>): UserLogin;<br><br>  <span class="hljs-title function_ invoke__">serializeBinary</span>(): Uint8Array;<br>  <span class="hljs-title function_ invoke__">toObject</span>(includeInstance?: <span class="hljs-keyword">boolean</span>): UserLogin.AsObject;<br>  <span class="hljs-built_in">static</span> <span class="hljs-title function_ invoke__">toObject</span>(<span class="hljs-attr">includeInstance</span>: <span class="hljs-keyword">boolean</span>, <span class="hljs-attr">msg</span>: UserLogin): UserLogin.AsObject;<br>  <span class="hljs-built_in">static</span> <span class="hljs-title function_ invoke__">serializeBinaryToWriter</span>(<span class="hljs-attr">message</span>: UserLogin, <span class="hljs-attr">writer</span>: jspb.BinaryWriter): <span class="hljs-keyword">void</span>;<br>  <span class="hljs-built_in">static</span> <span class="hljs-title function_ invoke__">deserializeBinary</span>(<span class="hljs-attr">bytes</span>: Uint8Array): UserLogin;<br>  <span class="hljs-built_in">static</span> <span class="hljs-title function_ invoke__">deserializeBinaryFromReader</span>(<span class="hljs-attr">message</span>: UserLogin, <span class="hljs-attr">reader</span>: jspb.BinaryReader): UserLogin;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 这是自己封装的service</span><br><span class="hljs-keyword">import</span> &#123; baseUrl &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/config/base&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">UserLogin</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/_proto/login/bisys_pb&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">UserBehaviorPromiseClient</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/_proto/login/bisys_grpc_web_pb&#x27;</span>;<br><br><span class="hljs-comment">// 自己定义的interface</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">LoginParamsType</span> &#123;<br>  <span class="hljs-attr">userName</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">password</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">token</span>: <span class="hljs-built_in">string</span>;<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">fakeAccountLogin</span>(<span class="hljs-params"><span class="hljs-attr">params</span>: <span class="hljs-title class_">LoginParamsType</span></span>) &#123;<br>  <span class="hljs-comment">// 首先引入对应的client实例化</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">userbehavior</span>: <span class="hljs-title class_">UserBehaviorPromiseClient</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserBehaviorPromiseClient</span>(baseUrl);<br>  <span class="hljs-comment">// 对请求参进行实例化</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">uselogin</span>: <span class="hljs-title class_">UserLogin</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserLogin</span>();<br>  <span class="hljs-comment">// 请求参的值赋值方式，写过java的 肯定很熟悉，这是对象的set操作</span><br>  <span class="hljs-comment">// 看到这里，是不是想说取值也是get操作？是的！</span><br>  uselogin.<span class="hljs-title function_">setAccount</span>(params.<span class="hljs-property">userName</span>);<br>  uselogin.<span class="hljs-title function_">setPassword</span>(params.<span class="hljs-property">password</span>);<br>  uselogin.<span class="hljs-title function_">setToken</span>(params.<span class="hljs-property">token</span>);<br>  <span class="hljs-keyword">return</span> userbehavior.<span class="hljs-title function_">login</span>(uselogin);<br>&#125;<br><br><br><span class="hljs-comment">//?使用该请求的地方?上面service已经对登录方法进行封装?所以在使用接口的地方直接引入</span><br><span class="hljs-keyword">import</span>?&#123; fakeAccountLogin &#125;?<span class="hljs-keyword">from</span>?<span class="hljs-string">&#x27;@/service/login&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">RespLoginedMsg</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/_proto/login/bisys_pb&#x27;</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">response</span>: <span class="hljs-title class_">RespLoginedMsg</span> = <span class="hljs-title function_">fakeAccountLogin</span>();<br><span class="hljs-comment">// 到这里，基本上已经能够调通了，取值上面也说了，是get操作，但是grpc的数据流是二进制的，</span><br><span class="hljs-comment">// 所以虽然使用get操作能够取到对应的值，但是并不是我们常见的json格式，</span><br><span class="hljs-comment">// 这里就需要用到PB文件中定义的toObject()方法 这是你看到的就是平时请求返回的json格式</span><br><span class="hljs-comment">// 到这里，基本grpc你已经可以使用了 并且个人感觉很舒服，毕竟和TS搭配，</span><br><span class="hljs-comment">// 所以，这样写也避免了前端很多时候会传值出问题的情况，个人比较喜欢</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;response ===&gt;&#x27;</span>, response.<span class="hljs-title function_">toObject</span>())<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="gRPC的部署"><a href="#gRPC的部署" class="headerlink" title="gRPC的部署"></a>gRPC的部署</h2><p><a target="_blank" rel="noopener" href="https://github.com/grpc/grpc-web/blob/master/net/grpc/gateway/examples/echo/nginx.conf">部署这个grpc时的Nginx配置</a> envoy、grpcproxy代理</p>
+<span id="more"></span>
+<p>参考文献： <a target="_blank" rel="noopener" href="http://doc.oschina.net/grpc">gRPC官方文档中文版</a> <a target="_blank" rel="noopener" href="https://grpc.io/docs/languages/web/basics/">gRPC-web</a> <a target="_blank" rel="noopener" href="https://github.com/grpc/grpc-web">grpc-web github仓库</a> <a target="_blank" rel="noopener" href="https://github.com/improbable-eng/grpc-web">使用grpc-web的demo github项目 参考</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/gRPC/" class="category-chain-item">gRPC</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>gRpc-web在项目中的落地使用</div>
+      <div>http://example.com/2020/08/29/grpc-web在项目中的落地使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>你的名字</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年8月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2018/09/28/%E7%8E%A9%E8%BD%AC%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/" title="玩转小程序云开发">
+                        <span class="hidden-mobile">玩转小程序云开发</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

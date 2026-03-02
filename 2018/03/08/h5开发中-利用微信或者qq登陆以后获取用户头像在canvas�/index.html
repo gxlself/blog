@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="你的名字">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在实际开发上先的h5页面产品中,总会遇到各种坑,好多坑都是安卓和iPhone端兼容的问题(用电脑谷歌浏览器输入  chrome:&#x2F;&#x2F;inspect&#x2F;#devices可以用手机USB调试,打开) eg:  软键盘弹出时会影响到的页面布局 如果在iframe中用到透明罩,想用fixed却失效? angular中如果用$scope控制布尔值来添加&#x2F;删除类时,获取这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="h5开发中,利用微信或者QQ登陆以后获取用户头像在canvas画布显示问题">
+<meta property="og:url" content="http://example.com/2018/03/08/h5%E5%BC%80%E5%8F%91%E4%B8%AD-%E5%88%A9%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%88%96%E8%80%85qq%E7%99%BB%E9%99%86%E4%BB%A5%E5%90%8E%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%A4%B4%E5%83%8F%E5%9C%A8canvas%EF%BF%BD/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="在实际开发上先的h5页面产品中,总会遇到各种坑,好多坑都是安卓和iPhone端兼容的问题(用电脑谷歌浏览器输入  chrome:&#x2F;&#x2F;inspect&#x2F;#devices可以用手机USB调试,打开) eg:  软键盘弹出时会影响到的页面布局 如果在iframe中用到透明罩,想用fixed却失效? angular中如果用$scope控制布尔值来添加&#x2F;删除类时,获取这">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-03-08T07:47:00.000Z">
+<meta property="article:modified_time" content="2026-03-02T13:45:24.590Z">
+<meta property="article:author" content="你的名字">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>h5开发中,利用微信或者QQ登陆以后获取用户头像在canvas画布显示问题 - 我的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/%E5%85%B3%E4%BA%8E/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="h5开发中,利用微信或者QQ登陆以后获取用户头像在canvas画布显示问题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-03-08 15:47" pubdate>
+          2018年3月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">h5开发中,利用微信或者QQ登陆以后获取用户头像在canvas画布显示问题</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在实际开发上先的h5页面产品中,总会遇到各种坑,好多坑都是安卓和iPhone端兼容的问题(用电脑谷歌浏览器输入  chrome:&#x2F;&#x2F;inspect&#x2F;#devices可以用手机USB调试,打开)</p>
+<p>eg:</p>
+<ol>
+<li>软键盘弹出时会影响到的页面布局</li>
+<li>如果在iframe中用到透明罩,想用fixed却失效?</li>
+<li>angular中如果用$scope控制布尔值来<strong>添加&#x2F;删除</strong>类时,获取这个节点的坑</li>
+<li>在获取用户头像等信息在canvas画图时加载的顺序</li>
+</ol>
+<p>暂时遇到的问题,比较磨人一点(之后遇到会慢慢补充)</p>
+<p>　　1. 对于h5页面产品,输入框弹出软键盘,页面布局可能会压缩(安卓手机存在,苹果无这bug),我用的单位是vh,所以会出现这个令人头疼的bug,知道了这个原因,先对万恶的安卓系统吐槽一遍,然后将高度的单位全部用vw替换,因为宽度不会变啊,调试一遍,跑一下页面,问题解决.</p>
+<p>　　2.很多公司都喜欢开发的页面使用iframe,所以也引发了很多的问题,就比如说你想用吸顶条或者一个透明遮罩层的时候,习惯了想用position:fixed的我,用了fixed失效,狠狠的对公司使用这个iframe吐槽一遍,但是也只能老老实实的想其他办法去解决,想过利用js去控制高度等等处理办法,最傻的是用绝对定位,高度100%,然后安卓和苹果总有一个会出现问题,真是内心吐槽一万遍,这两个系统就是爱搞特殊化,而且是手指向上拖动手机屏幕时,遮罩层也跟着跑,扎心!!!</p>
+<p>       这个时候,灵光乍现的我想到了一个绝佳的办法,那就是js控制获取手机屏幕高度,用哪个方法呢?毕竟有好多,诸位别慌,且跟着往下看:</p>
+<ol>
+<li>网页可见区域高：document.body.clientHeight </li>
+<li>网页可见区域宽：document.body.clientWidth </li>
+<li>网页可见区域宽：document.body.offsetWidth (包括边线的宽) </li>
+<li>网页可见区域高：document.body.offsetHeight (包括边线的宽) </li>
+<li>网页正文全文宽：document.body.scrollWidth </li>
+<li>网页正文全文高：document.body.scrollHeight </li>
+<li>网页被卷去的高：document.body.scrollTop </li>
+<li>网页被卷去的左：document.body.scrollLeft </li>
+<li>网页正文部分上：window.screenTop </li>
+<li>网页正文部分左：window.screenLeft </li>
+<li>屏幕分辨率的高：window.screen.height </li>
+<li>屏幕分辨率的宽：window.screen.width </li>
+<li>屏幕可用工作区高度：window.screen.availHeight </li>
+<li>屏幕可用工作区宽度：window.screen.availWidth</li>
+</ol>
+<p> 看到这么多,你也许会想问我,这么多,都可以吗?那我偷偷的告诉你,你可不要告诉别人哦,用前面的12种方法获取到的你总会发现不是安卓闹小脾气就是ios要逗你玩,这个时候,你要掌握游戏的规则,不要被它所主导你的思维,我也就不墨迹了,这时候,你应该选用   13&#x2F;14   屏幕的可用工作区宽高,这个算是都兼容</p>
+<p>HTML:  </p>
+<p>×</p>
+<p>CSS:  </p>
+<p>.yJackpot{<br>    transition: all linear 0.5s;<br>    -webkit-transition: all linear 0.5s;<br>    width: 100%;<br>    position: absolute;<br>    top: 0;<br>    left: 0;<br>    z-index: 99;<br>    background: url(..&#x2F;images&#x2F;prize.png) center no-repeat;<br>    background-size: 100% 100%;<br>}<br>.nJackpot{<br>    position: absolute;<br>    top: 0;<br>    left: 0;<br>    transition: all linear 0.5s;<br>    -webkit-transition: all linear 0.5s;<br>    background: url(..&#x2F;images&#x2F;prize.png) center no-repeat;<br>    background-size: 100% 100%;<br>    z-index: 99;<br>    width: 0;<br>    height: 0;<br>}</p>
+<p>(Angular1)js:  </p>
+<p>$scope.isJackpot &#x3D; true;      &#x2F;&#x2F;<br>setTimeout(function(){<br>　　console.log(window.screen.availHeight)<br>　　document.querySelector(“.yJackpot”).style.height &#x3D; window.screen.availHeight + “px”;<br>　　document.querySelector(“.yJackpot”).addEventListener(‘touchmove’,function(e){<br>　　　　e.preventDefault();<br>　　},false)<br>},100)</p>
+<p>　　上述js中你可能注意到我加了一个延时器,你们可能有点疑惑,好吧,这个问题就要和我的问题3挂钩了,怎么说呢,这就是dom加载和js加载先后的问题了,这也算开发中遇到的一个小坑,我很巧妙地加了一个延时,也许有更好的解决办法,只是我暂时还没发现,你们可以评论对我指教(龙在这里不胜感激,因为这是开发接触ng1,还没系统的学过ng1)</p>
+<p>　　而之后的事件监听则是为了实现禁止用户拖动,哈哈,这个方法一瞬间出现在我脑海,瞬间敲出来测试,完美实现.只能说,有些东西还是得熟悉,才能在开发中活学活用</p>
+<p>　　4.接下来要说的就是,获取用户头像之后,在画布上画图出现的问题了,这个比较恶心人,不对,是比较绕,容我小小的吐槽一次~</p>
+<p>angular<br>    .module(‘name’)<br>    .factory(‘myService’, myService)</p>
+<p>function myService($http, $q,$httpParamSerializerJQLike) {<br>    return {<br>        getUserNicknameMyID: getUserNicknameMyID,<br>        getWXShare: getWXShare,<br>        socialLogin: socialLogin<br>    };<br>　　&#x2F;&#x2F;获取用户信息<br>    function getUserNicknameMyID(myId) {<br>        var params &#x3D; {};<br>        params.myId&#x3D; myId;<br>        return $http.get(ENDPOINT + ‘getUserNickname’, {<br>                params: params<br>            })<br>            .then(getUserNicknameComplete)<br>            .catch(getUserNicknameFailed);</p>
+<pre><code class="hljs">    function getUserNicknameComplete(response) &#123;
+        return response.data;
+    &#125;
+
+    function getUserNicknameFailed(response) &#123;
+        return $q.reject(response.data);
+    &#125;
+&#125;
+</code></pre>
+<p>　　&#x2F;&#x2F;微信分享<br>    function getWXShare() {<br>        var params &#x3D; {};<br>        params.url &#x3D; location.href;<br>        params.appid &#x3D; ‘appid’;</p>
+<pre><code class="hljs">    return $http.get(&#39;此处为链接&#39;, &#123; params: params &#125;)
+        .then(getWXShareComplete)
+        .catch(getWXShareFailed);
+
+    function getWXShareComplete(response) &#123;
+        return response.data;
+    &#125;
+
+    function getWXShareFailed(response) &#123;
+        return $q.reject(response.data);
+    &#125;
+
+&#125;
+</code></pre>
+<p>　　<br>    function socialLogin(code) {<br>        var params &#x3D; {};<br>        params.code &#x3D; code;<br>        params.base &#x3D; “base”;<br>        params.platform &#x3D; 0;<br>        return $http({<br>                method: ‘POST’,<br>                url: ENDPOINT + ‘socialLogin’,<br>                headers: {<br>                    ‘Content-Type’: ‘application&#x2F;x-www-form-urlencoded’<br>                },<br>                data: $httpParamSerializerJQLike(params)<br>            }).then(postSocialLoginComplete)<br>            .<br>        catch(postSocialLoginFailed);</p>
+<pre><code class="hljs">    function postSocialLoginComplete(response) &#123;
+        return response.data;
+    &#125;
+
+    function postSocialLoginFailed(response) &#123;
+        return $q.reject(response.data);
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<p>　　以上我在factory中封装的请求方式,但是它是异步请求,所以你不知道你的用户信息在什么阶段获取到这个头像,然后去绘制,我就很傻了,先把所有的绘制完成再去绘制这个头像,问题就出来了,头像要么不绘制,要么就是给你绘制,随意的很,怎么办,只能收拾他,把之前所有的绘制方法各自封装成一个函数,然后一层一层的往下调用,上一步完成才往下走,将头像方法仍在了第一步,再次测试,发现完美解决,心里感觉舒服多了~</p>
+<p>当然还有遇到的问题,估计大家使用过h5产品绘图的可能都知道,canvas并不能直接保存在手机,那怎么办呢,调用插件Canvas2Image.js,然后将其封装成一个函数,每次绘制之后都将其调用绘制在指定的img上面,并将img覆盖在canvas上面,实现以假乱真的效果….具体代码如下:</p>
+<p>function createImg(canvas) { &#x2F;&#x2F;在id为img元素内生成图片<br>var img &#x3D; document.getElementById(“img”);<br>if(!img.hasChildNodes()) {<br>img.appendChild(Canvas2Image.convertToImage(canvas, 750, 1180, “png”));<br>} else {<br>img.removeChild(img.childNodes[0]);<br>img.appendChild(Canvas2Image.convertToImage(canvas, 750, 1180, “png”));<br>}<br>}</p>
+<p>　　好了,写了这么多,也有点困了,看看时间,已经是深夜23:46  记录于2018&#x2F;03&#x2F;08</p>
+<p>　　明天会更好~~</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/uncategorized/" class="category-chain-item">uncategorized</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>h5开发中,利用微信或者QQ登陆以后获取用户头像在canvas画布显示问题</div>
+      <div>http://example.com/2018/03/08/h5开发中-利用微信或者qq登陆以后获取用户头像在canvas�/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>你的名字</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年3月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/05/31/%E5%8E%9F%E5%9E%8B%E7%AC%94%E8%AE%B0/" title="原型笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">原型笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

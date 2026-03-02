@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="你的名字">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. Object.getOwnPropertyNames()   在学习使用该方法的时候，查阅了《JavaScript高级程序设计》与 MDN 来综合学习。  先来看看MDN对其的表述: 参数 obj: 　　一个对象，其自身的可枚举和不可枚举属性的名称被返回。 返回值　　  　　在给定对象上找到的属性对应的字符串数组。 描述 Object.getOwnPropertyNames() 返回一个数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型笔记">
+<meta property="og:url" content="http://example.com/2018/05/31/%E5%8E%9F%E5%9E%8B%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="1. Object.getOwnPropertyNames()   在学习使用该方法的时候，查阅了《JavaScript高级程序设计》与 MDN 来综合学习。  先来看看MDN对其的表述: 参数 obj: 　　一个对象，其自身的可枚举和不可枚举属性的名称被返回。 返回值　　  　　在给定对象上找到的属性对应的字符串数组。 描述 Object.getOwnPropertyNames() 返回一个数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-31T12:25:00.000Z">
+<meta property="article:modified_time" content="2026-03-02T13:45:24.600Z">
+<meta property="article:author" content="你的名字">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>原型笔记 - 我的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>我的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/%E5%85%B3%E4%BA%8E/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="原型笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-05-31 20:25" pubdate>
+          2018年5月31日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">原型笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>1. Object.getOwnPropertyNames()</li>
+</ul>
+<p> 在学习使用该方法的时候，查阅了《JavaScript高级程序设计》与 MDN 来综合学习。</p>
+<p> 先来看看MDN对其的表述:</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p> <code>obj:</code></p>
+<p>　　一个对象，其自身的可枚举和不可枚举属性的名称被返回。</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>　　  　　在给定对象上找到的属性对应的字符串数组。</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p> <code>Object.getOwnPropertyNames()</code> 返回一个数组，该数组对元素是 <code>obj</code>自身拥有的枚举或不可枚举属性名称字符串。 数组中枚举属性的顺序与通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in" title="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。"><code>for...in</code></a> 循环（或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" title="Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。"><code>Object.keys</code></a>）迭代该对象属性时一致。数组中不可枚举属性的顺序未定义。</p>
+<p> 同时,举出了几个例子来表显示,例如:</p>
+<p>var arr &#x3D; [“a”, “b”, “c”];<br>console.log(Object.getOwnPropertyNames(arr).sort()); &#x2F;&#x2F; [“0”, “1”, “2”, “length”] &#x2F;&#x2F; 类数组对象<br>var obj &#x3D; { 0: “a”, 1: “b”, 2: “c”};<br>console.log(Object.getOwnPropertyNames(obj).sort()); &#x2F;&#x2F; [“0”, “1”, “2”] &#x2F;&#x2F; 使用Array.forEach输出属性名和属性值<br>Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {<br>  console.log(val + “ -&gt; “ + obj[val]);<br>}); &#x2F;&#x2F; 输出 &#x2F;&#x2F; 0 -&gt; a &#x2F;&#x2F; 1 -&gt; b &#x2F;&#x2F; 2 -&gt; c &#x2F;&#x2F;不可枚举属性<br>var my_obj &#x3D; Object.create({}, {<br>  getFoo: {<br>    value: function() { return this.foo; },<br>    enumerable: false }<br>});<br>my_obj.foo = 1;</p>
+<p>console.log(Object.getOwnPropertyNames(my_obj).sort()); &#x2F;&#x2F; [“foo”, “getFoo”]</p>
+<p>　　正如：MDN上所述，该方法返回的是对象自身的可枚举与不可枚举属性，即返回的是一个数组。并且在查阅《JavaScript高级程序设计》这本书籍的时候,却发现了一个问题。</p>
+<p>function Person(){</p>
+<p>} </p>
+<p>Person.prototype.name &#x3D; ‘asfd’<br>Person.prototype.age &#x3D; 15<br>Person.prototype.sayName &#x3D; function () {<br>    console.log(this.name)<br>}</p>
+<p>var keys &#x3D; Object.getOwnPropertyNames(Person.prototype) console.log(keys)<br>&#x2F;&#x2F; 书籍中表述keys返回的是 [‘constructor’, ‘name’, ‘age’, ‘sayName’]</p>
+<p>&#x2F;&#x2F; 但是当将Person.property设置一个以对象字面量形式创建的对象时,就不再返回constructor. 书籍中已经解释此时的constructor不再指向Person &#x2F;&#x2F; 于是,我真的操作了一遍才发现,真的如此<br>&#x2F;&#x2F; 实例如下:<br>function Person(){ }<br>Person.prototype = {<br>     name: ‘zwj’,<br>     age: 21,<br>     say: function () {<br>        console.log(‘say’)<br>     }<br>}<br>var keys &#x3D; Object.getOwnPropertyNames(Person.property)<br>console.log(keys)<br>&#x2F;&#x2F; 此时返回的 [‘name’,’age’,’sayName’]</p>
+<p>　　我根据书中理解如下：设置一个以对象字面量形式创建的对象,虽然结果相同,但是constructor不再指向Person,这就涉及到原型链了</p>
+<p>　　首先,每个构造函数被创建的时候,同时就创建了一个构造函数对应的原型对象,即: 构造函数.prototype </p>
+<p>　　这个对象就会自动获得一个constructor属性,这个属性就是该对象指向构造函数的指针,你也可以试试输出: Person.prototype    Person.prototype.constructor     Person.prototype.constructor.prototype 等等,就会发现形成了一个闭环…</p>
+<p>　　这里我们使用的语法去接收属性值,本质上默写了prototype对象,这时候,改写的对象默认的constructor指向为Object构造函数,毕竟函数也是对象,在JS中一切皆为对象…</p>
+<p>　　所以如果我们通常为了在原型上进行大量的属性写入,就必须对这部分操作进行注意,需要在使用设置对象字面量方式之后手动为其添加constructor属性的指向,这样做的目的就是为了确保通过该属性能够访问到适当的值…</p>
+<p>　　当然你会觉得这样设置并不是完美,毕竟对于constructor这个属性,他应该是不可枚举的,此时,却是可枚举的,这是就需要我们使用Object.defineProperty()进行相应的设置.相应的代码如下:</p>
+<p>function Person(){<br>} &#x2F;&#x2F; 此时重写了prototype对象 constructor指向Object<br>Person.prototype &#x3D; {<br>  name: ‘Nick’,<br>  age: 15,<br>  sayName: function(){<br>    consolelog(this.name)<br>  }<br>} &#x2F;&#x2F; 对constructor进行设置修改<br>Object.defineProperty(Person.prototype, ‘constructor’, {<br>   enumerable: false,   &#x2F;&#x2F; 设置是否可枚举  false为不可枚举<br>   value: Person         &#x2F;&#x2F; 设置值为Person<br>}) &#x2F;&#x2F;可以通过definePrototype进行更改数据属性的共有6个,其余4个分别为: &#x2F;&#x2F; configurable  ———-&gt; 表示是否可以通过delete进行删除 默认为true &#x2F;&#x2F; writable        ———-&gt; 表示是否可以修改属性的值 默认为true<br>&#x2F;&#x2F; get     ———-&gt;   一个给属性提供 getter 的方法，如果没有 getter 则为 undefined。该方法返回值被用作属性值。默认为 undefined。<br>&#x2F;&#x2F; set   ——–&gt;  一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为 undefined。</p>
+<p>　　总结: 在进行创建构造函数的时候,以前习惯只是将constructor直接写在重写的prototype对象中,但是却忽略了其中最重要的一条信息,那就是constructor属性本身是不可枚举的属性,还需要更深一层的操作去设置constructor.看问题不能只看表面,更应该注重于内在…</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Javascript/" class="category-chain-item">Javascript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>原型笔记</div>
+      <div>http://example.com/2018/05/31/原型笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>你的名字</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年5月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/06/15/%E5%88%A9%E7%94%A8bomb%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="利用Bomb打造自己的小程序">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">利用Bomb打造自己的小程序</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
