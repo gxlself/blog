@@ -1,0 +1,16 @@
+# Netlify 构建配置（Hexo 博客）
+# 文档: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# 若博客在子路径 /blog/ 下，且由主站反向代理过来，可加重定向（按需启用）
+# [[redirects]]
+#   from = "/*"
+#   to = "/blog/:splat"
+#   status = 200
+#   force = true
