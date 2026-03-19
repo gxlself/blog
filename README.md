@@ -232,3 +232,4 @@ npm run images:download
 
 - **GitHub Pages 独立站**：仓库名改为 `username.github.io`，`url` 改为 `https://用户名.github.io/`，`root: /`，部署到 `main` 分支的 `public/` 或使用 `gh-pages` 分支。
 - **Vercel / Netlify**：连接本仓库，构建命令 `npm run build`，发布目录 `public`，并在 `_config.yml` 中把 `url` 设为该平台提供的域名（若要做在 gxlself.com/blog/ 下，需在主站做反向代理到 Vercel/Netlify 的地址）。
+
