@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta name="google-adsense-account" content="ca-pub-3264212333548066"><meta><title>标签: iOS - Gxlself</title><link rel="manifest" href="/blog/manifest.json"><meta name="application-name" content="Gxlself"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gxlself"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" sizes="192x192" href="/img/favicon.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/favicon.png"><meta name="description" content="创意产品，创意开发，创意架构师"><meta property="og:type" content="blog"><meta property="og:title" content="Gxlself"><meta property="og:url" content="https://gxlself.com/blog"><meta property="og:site_name" content="Gxlself"><meta property="og:description" content="创意产品，创意开发，创意架构师"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://gxlself.com/blog/img/og_image.png"><meta property="article:author" content="Gxlself"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://gxlself.com/blog/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gxlself.com/blog"},"headline":"Gxlself","image":["https://gxlself.com/blog/img/og_image.png"],"author":{"@type":"Person","name":"Gxlself"},"publisher":{"@type":"Organization","name":"Gxlself","logo":{"@type":"ImageObject","url":"https://gxlself.com/img/favicon.png"}},"description":"创意产品，创意开发，创意架构师"}</script><link rel="icon" href="/blog/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-3264212333548066" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="/blog/img/favicon.png" alt="Gxlself" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/blog/">Home</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/categories">Categories</a><a class="navbar-item" href="/blog/tags">Tags</a><a class="navbar-item" href="/blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/gxlself"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/blog/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">iOS</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-09T09:45:00.000Z" title="2026/4/9 17:45:00">2026-04-09</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:56.641Z" title="2026/4/9 17:44:56">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">4 分钟读完 (大约672个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/04/09/%E7%9F%A5%E4%B9%8B-%E4%B8%80%E6%96%B9%E5%AE%A3%E7%BA%B8%E8%AE%B0%E5%BD%95%E6%89%80%E7%9F%A5/">知之 — 一方宣纸，记录所知</a></p><div class="content"><p>知之为知之，不知为不知，是知也。</p>
+<p>做这款应用的时候，脑子里一直转着这句话。知识管理工具已经很多了，但我总觉得缺了点什么——那种记录知识时该有的仪式感。</p>
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>去年整理学习笔记，发现几个问题：</p>
+<ul>
+<li>笔记越记越多，真正记住的却没多少</li>
+<li>很多东西记过就忘，也不知道自己到底懂没懂</li>
+<li>分类太细，反而懒得整理了</li>
+</ul>
+<p>后来想明白一件事：记笔记的目的是为了记住，不是为了”记过”。那些精美的笔记软件，功能强大，但打开就是一片空白，反而不想写。</p>
+<p>我想做一个更简单的。</p>
+<h2 id="做成了什么样"><a href="#做成了什么样" class="headerlink" title="做成了什么样"></a>做成了什么样</h2><h3 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h3><p>打开就是最近记的东西，按时间排着。不用想放哪个分类，写了自然会留下来。</p>
+<h3 id="知与不知"><a href="#知与不知" class="headerlink" title="知与不知"></a>知与不知</h3><p>每条知识可以标记”知”或”否”。</p>
+<p>这不是什么创新功能，但很实用。记完之后问问自己：这个我真的懂了吗？懂的标知，不懂的标否。过段时间回来翻翻”否”的那些，说不定就懂了。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>分了几个大类：经史子集、科技、艺术、生活。名字古一点，但用着顺手。分类不用太细，粗一点反而好整理。</p>
+<h3 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h3><p>能看到自己记了多少，知了多少。一个数字，心里有数就行。</p>
+<h2 id="设计上的考虑"><a href="#设计上的考虑" class="headerlink" title="设计上的考虑"></a>设计上的考虑</h2><p>界面做得像纸。</p>
+<p>不是那种拟物的纸纹，是真正的白。字用墨色，间距留足，看着舒服。</p>
+<p>没有多余的颜色。除了标记用的朱红和表示”知”的青绿，其他都是黑白灰。</p>
+<p>按钮做成了印章的样子。点击的时候有个按下去的感觉，算是小小的仪式感。</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语言</td>
+<td>Swift (100% SwiftUI)</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>SwiftData</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>MVVM（无第三方依赖）</td>
+</tr>
+<tr>
+<td>云同步</td>
+<td>iCloud（计划中）</td>
+</tr>
+</tbody></table>
+<p>代码量不大，一千七百多行。功能简单，代码也就简单。</p>
+<h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><p>先上架看看反响。如果有人用，后面可以加：</p>
+<ul>
+<li>iCloud 同步</li>
+<li>导出功能</li>
+<li>小组件</li>
+</ul>
+<p>但核心不会变：简单的记录，诚实的标记。</p>
+<hr>
+<p>知之 1.0 现已在 App Store 上架。</p>
+<p>如果觉得记录知识这件事值得认真对待，可以试试看。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-14T02:00:00.000Z" title="2026/3/14 10:00:00">2026-03-14</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:21.164Z" title="2026/4/9 17:44:21">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">6 分钟读完 (大约832个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/03/14/G-Calc-Pro-%E5%85%A8%E8%83%BD%E5%88%9B%E6%84%8F%E8%AE%A1%E7%AE%97%E5%99%A8/">G Calc Pro — 全能创意计算器，覆盖全行业计算需求</a></p><div class="content"><h2 id="产品简介"><a href="#产品简介" class="headerlink" title="产品简介"></a>产品简介</h2><p><strong>全能计算器 Pro (G Calc Pro)</strong> 是一款跨平台（macOS, iOS, iPadOS）的专业级计算器应用，为普通用户、学生、以及金融、工程、医疗和建筑等多个行业的专业人士提供一个功能全面、操作便捷、数据同步的终极计算解决方案。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="标准与科学计算器"><a href="#标准与科学计算器" class="headerlink" title="标准与科学计算器"></a>标准与科学计算器</h3><ul>
+<li>基础运算：加、减、乘、除、百分比、平方、开方</li>
+<li>科学运算：三角函数、反三角函数、指数、对数、阶乘</li>
+<li>表达式编辑：自由移动光标，修改已输入的计算表达式</li>
+<li>多层嵌套括号支持</li>
+<li>标准内存功能 (M+, M-, MR, MC)</li>
+</ul>
+<h3 id="历史记录-History-Tape"><a href="#历史记录-History-Tape" class="headerlink" title="历史记录 (History Tape)"></a>历史记录 (History Tape)</h3><ul>
+<li>自动保存所有计算步骤和结果</li>
+<li>历史引用：点击任意记录带入当前计算</li>
+<li>iCloud 同步：跨设备实时同步</li>
+<li>添加备注：为记录添加文字说明</li>
+<li>分享导出：支持文本或邮件形式分享</li>
+</ul>
+<h3 id="收藏夹-Favorites"><a href="#收藏夹-Favorites" class="headerlink" title="收藏夹 (Favorites)"></a>收藏夹 (Favorites)</h3><ul>
+<li>一键存入收藏夹</li>
+<li>自定义命名</li>
+<li>快速调用常用计算</li>
+<li>iCloud 跨设备同步</li>
+</ul>
+<h3 id="界面定制"><a href="#界面定制" class="headerlink" title="界面定制"></a>界面定制</h3><ul>
+<li>多款精美主题</li>
+<li>按键布局自定义</li>
+<li>声音与触感反馈</li>
+</ul>
+<h2 id="专业计算模块-Pro-Modules"><a href="#专业计算模块-Pro-Modules" class="headerlink" title="专业计算模块 (Pro Modules)"></a>专业计算模块 (Pro Modules)</h2><h3 id="金融与商业"><a href="#金融与商业" class="headerlink" title="金融与商业"></a>金融与商业</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>贷款&#x2F;抵押计算器</td>
+<td>月供、总利息、还款总额，支持等额本息和等额本金</td>
+</tr>
+<tr>
+<td>ROI 计算器</td>
+<td>NPV、IRR、投资回收期</td>
+</tr>
+<tr>
+<td>货币转换器</td>
+<td>150+ 种货币实时汇率转换</td>
+</tr>
+<tr>
+<td>税务计算器</td>
+<td>GST&#x2F;VAT 计算，税率可自定义</td>
+</tr>
+<tr>
+<td>小费计算器</td>
+<td>账单小费及多人分摊</td>
+</tr>
+<tr>
+<td>储蓄计算器</td>
+<td>未来价值计算</td>
+</tr>
+</tbody></table>
+<h3 id="健康与医疗"><a href="#健康与医疗" class="headerlink" title="健康与医疗"></a>健康与医疗</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BMI 计算器</td>
+<td>WHO 标准范围参考</td>
+</tr>
+<tr>
+<td>BMR 计算器</td>
+<td>基础代谢率计算</td>
+</tr>
+<tr>
+<td>药物剂量计算器</td>
+<td>根据体重或体表面积计算</td>
+</tr>
+<tr>
+<td>临床评分计算器</td>
+<td>CHADS2-VASc、Wells 评分等</td>
+</tr>
+<tr>
+<td>预产期计算器</td>
+<td>末次月经或超声数据计算</td>
+</tr>
+</tbody></table>
+<h3 id="工程与建筑"><a href="#工程与建筑" class="headerlink" title="工程与建筑"></a>工程与建筑</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高级单位转换器</td>
+<td>3000+ 种单位转换</td>
+</tr>
+<tr>
+<td>尺寸计算器</td>
+<td>英制&#x2F;公制混合运算</td>
+</tr>
+<tr>
+<td>材料估算器</td>
+<td>油漆、地板、墙砖用量</td>
+</tr>
+<tr>
+<td>坡度与角度计算器</td>
+<td>斜坡计算</td>
+</tr>
+<tr>
+<td>电气计算器</td>
+<td>欧姆定律、功率计算</td>
+</tr>
+</tbody></table>
+<h3 id="日常生活"><a href="#日常生活" class="headerlink" title="日常生活"></a>日常生活</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>日期计算器</td>
+<td>天数、周数、月数计算</td>
+</tr>
+<tr>
+<td>油耗计算器</td>
+<td>百公里油耗</td>
+</tr>
+<tr>
+<td>折扣计算器</td>
+<td>折扣价格计算</td>
+</tr>
+<tr>
+<td>单价对比计算器</td>
+<td>不同包装商品性价比对比</td>
+</tr>
+</tbody></table>
+<h2 id="平台特性"><a href="#平台特性" class="headerlink" title="平台特性"></a>平台特性</h2><h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><ul>
+<li>主屏幕小组件</li>
+<li>触感反馈</li>
+</ul>
+<h3 id="iPadOS"><a href="#iPadOS" class="headerlink" title="iPadOS"></a>iPadOS</h3><ul>
+<li>分屏多任务 (Split View)</li>
+<li>Apple Pencil 支持</li>
+</ul>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><ul>
+<li>菜单栏模式</li>
+<li>丰富的键盘快捷键</li>
+<li>可调整窗口</li>
+</ul>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语言</td>
+<td>Swift (100% SwiftUI)</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>MVVM</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>SwiftData + CloudKit</td>
+</tr>
+<tr>
+<td>云同步</td>
+<td>iCloud</td>
+</tr>
+<tr>
+<td>购买验证</td>
+<td>StoreKit 2</td>
+</tr>
+</tbody></table>
+<h2 id="商业模式"><a href="#商业模式" class="headerlink" title="商业模式"></a>商业模式</h2><p>采用 <strong>Freemium（免费增值）</strong> 模式：</p>
+<ul>
+<li><strong>免费版</strong>: 完整功能的标准与科学计算器、历史记录（最近20条）、基础单位转换</li>
+<li><strong>专业版 (Pro)</strong>: 一次性购买解锁所有专业模块、无限历史记录、高级定制功能</li>
+</ul>
+<hr>
+<p><em>一个应用，覆盖全行业计算需求。</em></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-02-25T02:00:00.000Z" title="2026/2/25 10:00:00">2026-02-25</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:21.164Z" title="2026/4/9 17:44:21">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">4 分钟读完 (大约536个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/02/25/Stay-Above-Kill-Line-%E8%BF%9C%E7%A6%BB%E6%96%A9%E6%9D%80%E7%BA%BF/">Stay Above Kill Line — 远离斩杀线，反向预算思维</a></p><div class="content"><h2 id="产品简介"><a href="#产品简介" class="headerlink" title="产品简介"></a>产品简介</h2><p><strong>远离斩杀线 (Stay Above Kill Line)</strong> 是一款采用<strong>反向预算思维</strong>的 iOS 预算管理应用。核心理念：不关注”你花了多少”，而是聚焦”你真正能花多少”。</p>
+<blockquote>
+<p><strong>真实可支配余额 &#x3D; 账户余额 − 所有固定必要支出（斩杀线）</strong></p>
+</blockquote>
+<p>帮助用户不被账面余额”假富”所迷惑，始终清楚自己的财务安全边界。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="斩杀线计算"><a href="#斩杀线计算" class="headerlink" title="斩杀线计算"></a>斩杀线计算</h3><ul>
+<li>自动计算固定支出后的真实可支配余额</li>
+<li>可视化展示财务安全边界</li>
+<li>智能提醒余额接近危险区域</li>
+</ul>
+<h3 id="税务集成"><a href="#税务集成" class="headerlink" title="税务集成"></a>税务集成</h3><ul>
+<li>内置 9 国税务计算器</li>
+<li>一键将税务转为固定支出</li>
+<li>支持多币种、多国税务计算</li>
+</ul>
+<h3 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h3><ul>
+<li>6 套预置固定支出模板</li>
+<li>30 秒完成初始设置</li>
+<li>无需复杂记账，只关注核心数据</li>
+</ul>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语言</td>
+<td>Swift (100% SwiftUI)</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>MVVM（无第三方依赖）</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>UserDefaults + JSONEncoder&#x2F;Decoder</td>
+</tr>
+<tr>
+<td>云同步</td>
+<td>NSUbiquitousKeyValueStore (iCloud KV)</td>
+</tr>
+<tr>
+<td>购买验证</td>
+<td>StoreKit 2 AppTransaction</td>
+</tr>
+<tr>
+<td>本地化</td>
+<td>7 语言支持</td>
+</tr>
+</tbody></table>
+<h2 id="目标用户"><a href="#目标用户" class="headerlink" title="目标用户"></a>目标用户</h2><table>
+<thead>
+<tr>
+<th>用户画像</th>
+<th>核心痛点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>月光族 &#x2F; 预算管理困难的年轻人</td>
+<td>账面有钱但月底总是不够花</td>
+</tr>
+<tr>
+<td>自由职业者 &#x2F; 不稳定收入者</td>
+<td>需要维持最低账户安全余额</td>
+</tr>
+<tr>
+<td>首次独立理财的用户</td>
+<td>不想用复杂的记账 APP，只想知道”还能花多少”</td>
+</tr>
+<tr>
+<td>多国工作 &#x2F; 生活的国际化用户</td>
+<td>需要多币种、多国税务计算支持</td>
+</tr>
+</tbody></table>
+<h2 id="竞争差异化"><a href="#竞争差异化" class="headerlink" title="竞争差异化"></a>竞争差异化</h2><ol>
+<li><strong>极简主义</strong> - 只关注”能花多少”，不强制复杂的预算分类</li>
+<li><strong>心理安全感</strong> - 通过”斩杀线”概念，给用户明确的安全边界</li>
+<li><strong>税务集成</strong> - 内置 9 国税务计算器</li>
+<li><strong>模板快速上手</strong> - 6 套预置固定支出模板</li>
+<li><strong>无压力体验</strong> - 不批判用户的消费行为，只提供客观的数据支持</li>
+</ol>
+<h2 id="App-Store-信息"><a href="#App-Store-信息" class="headerlink" title="App Store 信息"></a>App Store 信息</h2><ul>
+<li><strong>Bundle ID</strong>: <code>gxlself.slay.the.line</code></li>
+<li><strong>App Store ID</strong>: <code>6759259799</code></li>
+<li><strong>平台</strong>: iOS 16.0+ &#x2F; macOS 14.0+</li>
+<li><strong>价格</strong>: 付费应用</li>
+</ul>
+<hr>
+<p><em>远离斩杀线，掌控你的财务自由。</em></p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/blog/img/favicon.png" alt="Gxlself"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Gxlself</p><p class="is-size-6 is-block">个人创意开发者</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/blog/archives/"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/blog/categories/"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/blog/tags/"><p class="title">12</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/gxlself" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="GitHub" href="https://github.com/gxlself"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Discord" href="https://discord.gg/xEeV8PrK"><i class="fab fa-discord"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="mailto:gxlself@gmail.com"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/blog/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/categories/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/gRPC/"><span class="level-start"><span class="level-item">gRPC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">小程序</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"><span class="level-start"><span class="level-item">工具推荐</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-09T09:45:00.000Z">2026-04-09</time></p><p class="title"><a href="/blog/blog/2026/04/09/%E7%9F%A5%E4%B9%8B-%E4%B8%80%E6%96%B9%E5%AE%A3%E7%BA%B8%E8%AE%B0%E5%BD%95%E6%89%80%E7%9F%A5/">知之 — 一方宣纸，记录所知</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-03T02:00:00.000Z">2026-04-03</time></p><p class="title"><a href="/blog/blog/2026/04/03/zu-%E4%BA%BA%E4%BB%8E%E4%BC%97%E6%97%8F-%E6%95%B0%E5%AD%97%E5%8C%96%E4%BA%B2%E6%83%85%E6%97%8F%E8%B0%B1/">zu — 人从众族，数字化亲情族谱与互认</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-18T02:00:00.000Z">2026-03-18</time></p><p class="title"><a href="/blog/blog/2026/03/18/Paste-macOS-clipboard-manager/">Paste — 轻量级隐私优先的 macOS 剪贴板管理器</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-14T02:00:00.000Z">2026-03-14</time></p><p class="title"><a href="/blog/blog/2026/03/14/G-Calc-Pro-%E5%85%A8%E8%83%BD%E5%88%9B%E6%84%8F%E8%AE%A1%E7%AE%97%E5%99%A8/">G Calc Pro — 全能创意计算器，覆盖全行业计算需求</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-25T02:00:00.000Z">2026-02-25</time></p><p class="title"><a href="/blog/blog/2026/02/25/Stay-Above-Kill-Line-%E8%BF%9C%E7%A6%BB%E6%96%A9%E6%9D%80%E7%BA%BF/">Stay Above Kill Line — 远离斩杀线，反向预算思维</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2018/09/"><span class="level-start"><span class="level-item">九月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2018/06/"><span class="level-start"><span class="level-item">六月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2018/05/"><span class="level-start"><span class="level-item">五月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/blog/tags/Flutter/"><span class="tag">Flutter</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/SwiftUI/"><span class="tag">SwiftUI</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/iOS/"><span class="tag">iOS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/macOS/"><span class="tag">macOS</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E5%89%AA%E8%B4%B4%E6%9D%BF/"><span class="tag">剪贴板</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E5%AE%B6%E6%97%8F/"><span class="tag">家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E5%BC%80%E6%BA%90/"><span class="tag">开源</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"><span class="tag">效率工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E6%97%8F%E8%B0%B1/"><span class="tag">族谱</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"><span class="tag">知识管理</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"><span class="tag">计算器</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86/"><span class="tag">预算管理</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3264212333548066" data-ad-slot="7871870988" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="/blog/img/favicon.png" alt="Gxlself" height="28"></a><p class="is-size-7"><span>&copy; 2026 Gxlself</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2025 Gxlself · <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="nofollow noopener">晋ICP备17010620号</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/blog/js/column.js"></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/blog/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/blog/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

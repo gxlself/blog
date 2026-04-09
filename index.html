@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="google-adsense-account" content="ca-pub-3264212333548066"><meta><title>Gxlself</title><link rel="manifest" href="/blog/manifest.json"><meta name="application-name" content="Gxlself"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Gxlself"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" sizes="192x192" href="/img/favicon.png"><link rel="apple-touch-icon" sizes="512x512" href="/img/favicon.png"><meta name="description" content="创意产品，创意开发，创意架构师"><meta property="og:type" content="blog"><meta property="og:title" content="Gxlself"><meta property="og:url" content="https://gxlself.com/blog"><meta property="og:site_name" content="Gxlself"><meta property="og:description" content="创意产品，创意开发，创意架构师"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://gxlself.com/blog/img/og_image.png"><meta property="article:author" content="Gxlself"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://gxlself.com/blog/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gxlself.com/blog"},"headline":"Gxlself","image":["https://gxlself.com/blog/img/og_image.png"],"author":{"@type":"Person","name":"Gxlself"},"publisher":{"@type":"Organization","name":"Gxlself","logo":{"@type":"ImageObject","url":"https://gxlself.com/img/favicon.png"}},"description":"创意产品，创意开发，创意架构师"}</script><link rel="icon" href="/blog/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/blog/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-3264212333548066" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/"><img src="/blog/img/favicon.png" alt="Gxlself" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/blog/">Home</a><a class="navbar-item" href="/blog/archives">Archives</a><a class="navbar-item" href="/blog/categories">Categories</a><a class="navbar-item" href="/blog/tags">Tags</a><a class="navbar-item" href="/blog/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/gxlself"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-09T09:45:00.000Z" title="2026/4/9 17:45:00">2026-04-09</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:56.641Z" title="2026/4/9 17:44:56">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">4 分钟读完 (大约672个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/04/09/%E7%9F%A5%E4%B9%8B-%E4%B8%80%E6%96%B9%E5%AE%A3%E7%BA%B8%E8%AE%B0%E5%BD%95%E6%89%80%E7%9F%A5/">知之 — 一方宣纸，记录所知</a></p><div class="content"><p>知之为知之，不知为不知，是知也。</p>
+<p>做这款应用的时候，脑子里一直转着这句话。知识管理工具已经很多了，但我总觉得缺了点什么——那种记录知识时该有的仪式感。</p>
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>去年整理学习笔记，发现几个问题：</p>
+<ul>
+<li>笔记越记越多，真正记住的却没多少</li>
+<li>很多东西记过就忘，也不知道自己到底懂没懂</li>
+<li>分类太细，反而懒得整理了</li>
+</ul>
+<p>后来想明白一件事：记笔记的目的是为了记住，不是为了”记过”。那些精美的笔记软件，功能强大，但打开就是一片空白，反而不想写。</p>
+<p>我想做一个更简单的。</p>
+<h2 id="做成了什么样"><a href="#做成了什么样" class="headerlink" title="做成了什么样"></a>做成了什么样</h2><h3 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h3><p>打开就是最近记的东西，按时间排着。不用想放哪个分类，写了自然会留下来。</p>
+<h3 id="知与不知"><a href="#知与不知" class="headerlink" title="知与不知"></a>知与不知</h3><p>每条知识可以标记”知”或”否”。</p>
+<p>这不是什么创新功能，但很实用。记完之后问问自己：这个我真的懂了吗？懂的标知，不懂的标否。过段时间回来翻翻”否”的那些，说不定就懂了。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>分了几个大类：经史子集、科技、艺术、生活。名字古一点，但用着顺手。分类不用太细，粗一点反而好整理。</p>
+<h3 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h3><p>能看到自己记了多少，知了多少。一个数字，心里有数就行。</p>
+<h2 id="设计上的考虑"><a href="#设计上的考虑" class="headerlink" title="设计上的考虑"></a>设计上的考虑</h2><p>界面做得像纸。</p>
+<p>不是那种拟物的纸纹，是真正的白。字用墨色，间距留足，看着舒服。</p>
+<p>没有多余的颜色。除了标记用的朱红和表示”知”的青绿，其他都是黑白灰。</p>
+<p>按钮做成了印章的样子。点击的时候有个按下去的感觉，算是小小的仪式感。</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语言</td>
+<td>Swift (100% SwiftUI)</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>SwiftData</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>MVVM（无第三方依赖）</td>
+</tr>
+<tr>
+<td>云同步</td>
+<td>iCloud（计划中）</td>
+</tr>
+</tbody></table>
+<p>代码量不大，一千七百多行。功能简单，代码也就简单。</p>
+<h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><p>先上架看看反响。如果有人用，后面可以加：</p>
+<ul>
+<li>iCloud 同步</li>
+<li>导出功能</li>
+<li>小组件</li>
+</ul>
+<p>但核心不会变：简单的记录，诚实的标记。</p>
+<hr>
+<p>知之 1.0 现已在 App Store 上架。</p>
+<p>如果觉得记录知识这件事值得认真对待，可以试试看。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-03T02:00:00.000Z" title="2026/4/3 10:00:00">2026-04-03</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:21.165Z" title="2026/4/9 17:44:21">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">2 分钟读完 (大约298个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/04/03/zu-%E4%BA%BA%E4%BB%8E%E4%BC%97%E6%97%8F-%E6%95%B0%E5%AD%97%E5%8C%96%E4%BA%B2%E6%83%85%E6%97%8F%E8%B0%B1/">zu — 人从众族，数字化亲情族谱与互认</a></p><div class="content"><h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p><strong>人从众族 (zu)</strong> 是一款基于 Flutter 开发的数字化亲情族谱应用，旨在帮助用户建立和维护家族关系网络，实现亲情互认。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="族谱数字化"><a href="#族谱数字化" class="headerlink" title="族谱数字化"></a>族谱数字化</h3><ul>
+<li>可视化家族树结构</li>
+<li>支持多代亲属关系记录</li>
+<li>家族成员信息管理</li>
+</ul>
+<h3 id="亲情互认"><a href="#亲情互认" class="headerlink" title="亲情互认"></a>亲情互认</h3><ul>
+<li>家族成员身份验证</li>
+<li>亲属关系确认机制</li>
+<li>家族动态分享</li>
+</ul>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Flutter</td>
+<td>跨平台移动应用开发</td>
+</tr>
+<tr>
+<td>Riverpod</td>
+<td>状态管理</td>
+</tr>
+<tr>
+<td>Go Router</td>
+<td>路由导航</td>
+</tr>
+<tr>
+<td>Firebase</td>
+<td>后端服务（认证、消息、分析）</td>
+</tr>
+<tr>
+<td>Hive</td>
+<td>本地数据存储</td>
+</tr>
+<tr>
+<td>Dio</td>
+<td>网络请求</td>
+</tr>
+</tbody></table>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zu/</span><br><span class="line">├── zu_app/        # Flutter 应用端</span><br><span class="line">├── zu_server/     # 服务端</span><br><span class="line">└── 资料/          # 项目资料</span><br></pre></td></tr></table></figure>
+
+<h2 id="特色亮点"><a href="#特色亮点" class="headerlink" title="特色亮点"></a>特色亮点</h2><ol>
+<li><strong>跨平台支持</strong> - 一套代码，同时支持 iOS 和 Android</li>
+<li><strong>Firebase 集成</strong> - 完整的后端服务支持</li>
+<li><strong>离线优先</strong> - Hive 本地存储，支持离线使用</li>
+<li><strong>精美动画</strong> - flutter_animate 提供流畅的交互体验</li>
+<li><strong>二维码分享</strong> - 支持 QR 码快速添加家族成员</li>
+</ol>
+<hr>
+<p><em>让家族记忆永存，让亲情纽带更紧密。</em></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-18T02:00:00.000Z" title="2026/3/18 10:00:00">2026-03-18</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:21.164Z" title="2026/4/9 17:44:21">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">6 分钟读完 (大约942个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/03/18/Paste-macOS-clipboard-manager/">Paste — 轻量级隐私优先的 macOS 剪贴板管理器</a></p><div class="content"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Paste 是一款轻量级、隐私优先的 macOS 剪贴板管理器。它能够记录你的剪贴板历史，支持全文搜索、Paste Stack、Pinboards、自定义分类以及可选的 iCloud 同步功能。</p>
+<p><img src="https://paste.gxlself.com/images/hero.png"></p>
+<h2 id="为什么选择-Paste？"><a href="#为什么选择-Paste？" class="headerlink" title="为什么选择 Paste？"></a>为什么选择 Paste？</h2><p>在日常工作开发中，我们经常需要复制粘贴各种内容：代码片段、文档内容、链接、图片等。系统自带的剪贴板只能保存最近一次复制的内容，这大大降低了工作效率。</p>
+<p>Paste 解决了这个问题，它可以：</p>
+<ul>
+<li><strong>记录剪贴板历史</strong> - 不再担心复制后被覆盖</li>
+<li><strong>快速搜索</strong> - 全文搜索快速找到需要的内容</li>
+<li><strong>分类管理</strong> - 文本、图片、文件、链接自动分类</li>
+<li><strong>Pinboards</strong> - 将常用内容固定，随时调用</li>
+<li><strong>Paste Stack</strong> - 依次粘贴多个剪贴项</li>
+</ul>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="剪贴板监控"><a href="#剪贴板监控" class="headerlink" title="剪贴板监控"></a>剪贴板监控</h3><ul>
+<li>约 300ms 轮询间隔，捕获纯文本、富文本（RTF）、图片和文件路径</li>
+<li>智能去重：基于 SHA-256 内容哈希，重复内容仅刷新时间戳</li>
+<li>自写入过滤：Paste 写入的内容不会立即被重新记录</li>
+<li>排除应用：可配置排除密码管理器等敏感应用</li>
+</ul>
+<h3 id="主面板"><a href="#主面板" class="headerlink" title="主面板"></a>主面板</h3><ul>
+<li>半透明浮层面板，键盘优先设计</li>
+<li>支持底部&#x2F;顶部&#x2F;左侧&#x2F;右侧位置设置</li>
+<li>自适应卡片布局，滑入动画效果</li>
+<li>辅助粘贴：配合辅助功能权限，自动粘贴到当前应用</li>
+</ul>
+<h3 id="搜索与过滤"><a href="#搜索与过滤" class="headerlink" title="搜索与过滤"></a>搜索与过滤</h3><ul>
+<li>实时全文搜索，输入即搜</li>
+<li>类型过滤：全部、文本、图片、文件、链接</li>
+<li>正则表达式预设过滤器</li>
+<li>自定义分类（标签）</li>
+</ul>
+<h3 id="Pinboards-与-Paste-Stack"><a href="#Pinboards-与-Paste-Stack" class="headerlink" title="Pinboards 与 Paste Stack"></a>Pinboards 与 Paste Stack</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pinboards</td>
+<td>多个固定槽位（默认 5 个，最多 10 个），全局快捷键切换</td>
+</tr>
+<tr>
+<td>Paste Stack</td>
+<td>将剪贴项加入队列，按顺序粘贴</td>
+</tr>
+<tr>
+<td>纯文本粘贴</td>
+<td>默认纯文本，或按住 ⇧ 粘贴纯文本</td>
+</tr>
+</tbody></table>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><table>
+<thead>
+<tr>
+<th>动作</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开&#x2F;关闭面板</td>
+<td>⌘⇧V</td>
+</tr>
+<tr>
+<td>打开 Paste Stack</td>
+<td>⌘⇧C</td>
+</tr>
+<tr>
+<td>下一个 Pinboard</td>
+<td>⌘]</td>
+</tr>
+<tr>
+<td>上一个 Pinboard</td>
+<td>⌘[</td>
+</tr>
+<tr>
+<td>快速粘贴 1-9</td>
+<td>⌘1 ~ ⌘9</td>
+</tr>
+</tbody></table>
+<h2 id="跨平台支持"><a href="#跨平台支持" class="headerlink" title="跨平台支持"></a>跨平台支持</h2><p>Paste 不仅支持 macOS，还提供了 iOS 版本：</p>
+<ul>
+<li><strong>macOS 应用</strong> - 菜单栏应用，记录剪贴板历史</li>
+<li><strong>iOS 应用</strong> - 浏览相同的历史记录、Pinboards</li>
+<li><strong>iOS 自定义键盘</strong> - 在任意应用中插入保存的剪贴项</li>
+</ul>
+<p>当你在 macOS 和 iOS 上都开启 iCloud 同步时，历史记录可以在设备间同步。</p>
+<h2 id="隐私保护"><a href="#隐私保护" class="headerlink" title="隐私保护"></a>隐私保护</h2><p>Paste 非常注重用户隐私：</p>
+<ul>
+<li>数据<strong>本地存储</strong>，iCloud 同步是可选的</li>
+<li><strong>无分析</strong>、无崩溃报告、无第三方 SDK</li>
+<li>敏感应用可通过排除规则跳过记录</li>
+</ul>
+<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><ol>
+<li>访问 <a target="_blank" rel="noopener" href="https://github.com/gxlself/Paste/releases">GitHub Releases</a> 下载最新的 <code>Paste-*-macos.zip</code></li>
+<li>解压后将 Paste 拖入应用程序文件夹</li>
+<li>首次运行时在「系统设置 → 隐私与安全性 → 辅助功能」中授权</li>
+</ol>
+<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://apps.apple.com/us/app/paste-g/id6758338373">App Store 下载</a>（$2.99）</li>
+<li>或通过 <a target="_blank" rel="noopener" href="https://testflight.apple.com/join/2UKC5P27">TestFlight</a> 参与测试</li>
+</ul>
+<h2 id="开源"><a href="#开源" class="headerlink" title="开源"></a>开源</h2><p>Paste 是开源项目，代码托管在 GitHub：</p>
+<ul>
+<li><strong>仓库地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/gxlself/Paste">github.com&#x2F;gxlself&#x2F;Paste</a></li>
+<li><strong>许可证</strong>：MIT License</li>
+</ul>
+<p>如果你觉得 Paste 有用，欢迎在 GitHub 上给个 Star ⭐</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><strong>官网</strong>：<a target="_blank" rel="noopener" href="https://paste.gxlself.com/">paste.gxlself.com</a></li>
+<li><strong>GitHub</strong>：<a target="_blank" rel="noopener" href="https://github.com/gxlself/Paste">github.com&#x2F;gxlself&#x2F;Paste</a></li>
+<li><strong>问题反馈</strong>：<a target="_blank" rel="noopener" href="https://github.com/gxlself/paste/issues">GitHub Issues</a></li>
+</ul>
+<hr>
+<p>如果这款工具对你有帮助，欢迎支持开发者的持续维护工作！</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-03-14T02:00:00.000Z" title="2026/3/14 10:00:00">2026-03-14</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:21.164Z" title="2026/4/9 17:44:21">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">6 分钟读完 (大约832个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/03/14/G-Calc-Pro-%E5%85%A8%E8%83%BD%E5%88%9B%E6%84%8F%E8%AE%A1%E7%AE%97%E5%99%A8/">G Calc Pro — 全能创意计算器，覆盖全行业计算需求</a></p><div class="content"><h2 id="产品简介"><a href="#产品简介" class="headerlink" title="产品简介"></a>产品简介</h2><p><strong>全能计算器 Pro (G Calc Pro)</strong> 是一款跨平台（macOS, iOS, iPadOS）的专业级计算器应用，为普通用户、学生、以及金融、工程、医疗和建筑等多个行业的专业人士提供一个功能全面、操作便捷、数据同步的终极计算解决方案。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="标准与科学计算器"><a href="#标准与科学计算器" class="headerlink" title="标准与科学计算器"></a>标准与科学计算器</h3><ul>
+<li>基础运算：加、减、乘、除、百分比、平方、开方</li>
+<li>科学运算：三角函数、反三角函数、指数、对数、阶乘</li>
+<li>表达式编辑：自由移动光标，修改已输入的计算表达式</li>
+<li>多层嵌套括号支持</li>
+<li>标准内存功能 (M+, M-, MR, MC)</li>
+</ul>
+<h3 id="历史记录-History-Tape"><a href="#历史记录-History-Tape" class="headerlink" title="历史记录 (History Tape)"></a>历史记录 (History Tape)</h3><ul>
+<li>自动保存所有计算步骤和结果</li>
+<li>历史引用：点击任意记录带入当前计算</li>
+<li>iCloud 同步：跨设备实时同步</li>
+<li>添加备注：为记录添加文字说明</li>
+<li>分享导出：支持文本或邮件形式分享</li>
+</ul>
+<h3 id="收藏夹-Favorites"><a href="#收藏夹-Favorites" class="headerlink" title="收藏夹 (Favorites)"></a>收藏夹 (Favorites)</h3><ul>
+<li>一键存入收藏夹</li>
+<li>自定义命名</li>
+<li>快速调用常用计算</li>
+<li>iCloud 跨设备同步</li>
+</ul>
+<h3 id="界面定制"><a href="#界面定制" class="headerlink" title="界面定制"></a>界面定制</h3><ul>
+<li>多款精美主题</li>
+<li>按键布局自定义</li>
+<li>声音与触感反馈</li>
+</ul>
+<h2 id="专业计算模块-Pro-Modules"><a href="#专业计算模块-Pro-Modules" class="headerlink" title="专业计算模块 (Pro Modules)"></a>专业计算模块 (Pro Modules)</h2><h3 id="金融与商业"><a href="#金融与商业" class="headerlink" title="金融与商业"></a>金融与商业</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>贷款&#x2F;抵押计算器</td>
+<td>月供、总利息、还款总额，支持等额本息和等额本金</td>
+</tr>
+<tr>
+<td>ROI 计算器</td>
+<td>NPV、IRR、投资回收期</td>
+</tr>
+<tr>
+<td>货币转换器</td>
+<td>150+ 种货币实时汇率转换</td>
+</tr>
+<tr>
+<td>税务计算器</td>
+<td>GST&#x2F;VAT 计算，税率可自定义</td>
+</tr>
+<tr>
+<td>小费计算器</td>
+<td>账单小费及多人分摊</td>
+</tr>
+<tr>
+<td>储蓄计算器</td>
+<td>未来价值计算</td>
+</tr>
+</tbody></table>
+<h3 id="健康与医疗"><a href="#健康与医疗" class="headerlink" title="健康与医疗"></a>健康与医疗</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BMI 计算器</td>
+<td>WHO 标准范围参考</td>
+</tr>
+<tr>
+<td>BMR 计算器</td>
+<td>基础代谢率计算</td>
+</tr>
+<tr>
+<td>药物剂量计算器</td>
+<td>根据体重或体表面积计算</td>
+</tr>
+<tr>
+<td>临床评分计算器</td>
+<td>CHADS2-VASc、Wells 评分等</td>
+</tr>
+<tr>
+<td>预产期计算器</td>
+<td>末次月经或超声数据计算</td>
+</tr>
+</tbody></table>
+<h3 id="工程与建筑"><a href="#工程与建筑" class="headerlink" title="工程与建筑"></a>工程与建筑</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高级单位转换器</td>
+<td>3000+ 种单位转换</td>
+</tr>
+<tr>
+<td>尺寸计算器</td>
+<td>英制&#x2F;公制混合运算</td>
+</tr>
+<tr>
+<td>材料估算器</td>
+<td>油漆、地板、墙砖用量</td>
+</tr>
+<tr>
+<td>坡度与角度计算器</td>
+<td>斜坡计算</td>
+</tr>
+<tr>
+<td>电气计算器</td>
+<td>欧姆定律、功率计算</td>
+</tr>
+</tbody></table>
+<h3 id="日常生活"><a href="#日常生活" class="headerlink" title="日常生活"></a>日常生活</h3><table>
+<thead>
+<tr>
+<th>计算器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>日期计算器</td>
+<td>天数、周数、月数计算</td>
+</tr>
+<tr>
+<td>油耗计算器</td>
+<td>百公里油耗</td>
+</tr>
+<tr>
+<td>折扣计算器</td>
+<td>折扣价格计算</td>
+</tr>
+<tr>
+<td>单价对比计算器</td>
+<td>不同包装商品性价比对比</td>
+</tr>
+</tbody></table>
+<h2 id="平台特性"><a href="#平台特性" class="headerlink" title="平台特性"></a>平台特性</h2><h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><ul>
+<li>主屏幕小组件</li>
+<li>触感反馈</li>
+</ul>
+<h3 id="iPadOS"><a href="#iPadOS" class="headerlink" title="iPadOS"></a>iPadOS</h3><ul>
+<li>分屏多任务 (Split View)</li>
+<li>Apple Pencil 支持</li>
+</ul>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><ul>
+<li>菜单栏模式</li>
+<li>丰富的键盘快捷键</li>
+<li>可调整窗口</li>
+</ul>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语言</td>
+<td>Swift (100% SwiftUI)</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>MVVM</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>SwiftData + CloudKit</td>
+</tr>
+<tr>
+<td>云同步</td>
+<td>iCloud</td>
+</tr>
+<tr>
+<td>购买验证</td>
+<td>StoreKit 2</td>
+</tr>
+</tbody></table>
+<h2 id="商业模式"><a href="#商业模式" class="headerlink" title="商业模式"></a>商业模式</h2><p>采用 <strong>Freemium（免费增值）</strong> 模式：</p>
+<ul>
+<li><strong>免费版</strong>: 完整功能的标准与科学计算器、历史记录（最近20条）、基础单位转换</li>
+<li><strong>专业版 (Pro)</strong>: 一次性购买解锁所有专业模块、无限历史记录、高级定制功能</li>
+</ul>
+<hr>
+<p><em>一个应用，覆盖全行业计算需求。</em></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-02-25T02:00:00.000Z" title="2026/2/25 10:00:00">2026-02-25</time>发表</span><span class="level-item"><time dateTime="2026-04-09T09:44:21.164Z" title="2026/4/9 17:44:21">2026-04-09</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></span><span class="level-item">4 分钟读完 (大约536个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2026/02/25/Stay-Above-Kill-Line-%E8%BF%9C%E7%A6%BB%E6%96%A9%E6%9D%80%E7%BA%BF/">Stay Above Kill Line — 远离斩杀线，反向预算思维</a></p><div class="content"><h2 id="产品简介"><a href="#产品简介" class="headerlink" title="产品简介"></a>产品简介</h2><p><strong>远离斩杀线 (Stay Above Kill Line)</strong> 是一款采用<strong>反向预算思维</strong>的 iOS 预算管理应用。核心理念：不关注”你花了多少”，而是聚焦”你真正能花多少”。</p>
+<blockquote>
+<p><strong>真实可支配余额 &#x3D; 账户余额 − 所有固定必要支出（斩杀线）</strong></p>
+</blockquote>
+<p>帮助用户不被账面余额”假富”所迷惑，始终清楚自己的财务安全边界。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="斩杀线计算"><a href="#斩杀线计算" class="headerlink" title="斩杀线计算"></a>斩杀线计算</h3><ul>
+<li>自动计算固定支出后的真实可支配余额</li>
+<li>可视化展示财务安全边界</li>
+<li>智能提醒余额接近危险区域</li>
+</ul>
+<h3 id="税务集成"><a href="#税务集成" class="headerlink" title="税务集成"></a>税务集成</h3><ul>
+<li>内置 9 国税务计算器</li>
+<li>一键将税务转为固定支出</li>
+<li>支持多币种、多国税务计算</li>
+</ul>
+<h3 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h3><ul>
+<li>6 套预置固定支出模板</li>
+<li>30 秒完成初始设置</li>
+<li>无需复杂记账，只关注核心数据</li>
+</ul>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语言</td>
+<td>Swift (100% SwiftUI)</td>
+</tr>
+<tr>
+<td>架构</td>
+<td>MVVM（无第三方依赖）</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>UserDefaults + JSONEncoder&#x2F;Decoder</td>
+</tr>
+<tr>
+<td>云同步</td>
+<td>NSUbiquitousKeyValueStore (iCloud KV)</td>
+</tr>
+<tr>
+<td>购买验证</td>
+<td>StoreKit 2 AppTransaction</td>
+</tr>
+<tr>
+<td>本地化</td>
+<td>7 语言支持</td>
+</tr>
+</tbody></table>
+<h2 id="目标用户"><a href="#目标用户" class="headerlink" title="目标用户"></a>目标用户</h2><table>
+<thead>
+<tr>
+<th>用户画像</th>
+<th>核心痛点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>月光族 &#x2F; 预算管理困难的年轻人</td>
+<td>账面有钱但月底总是不够花</td>
+</tr>
+<tr>
+<td>自由职业者 &#x2F; 不稳定收入者</td>
+<td>需要维持最低账户安全余额</td>
+</tr>
+<tr>
+<td>首次独立理财的用户</td>
+<td>不想用复杂的记账 APP，只想知道”还能花多少”</td>
+</tr>
+<tr>
+<td>多国工作 &#x2F; 生活的国际化用户</td>
+<td>需要多币种、多国税务计算支持</td>
+</tr>
+</tbody></table>
+<h2 id="竞争差异化"><a href="#竞争差异化" class="headerlink" title="竞争差异化"></a>竞争差异化</h2><ol>
+<li><strong>极简主义</strong> - 只关注”能花多少”，不强制复杂的预算分类</li>
+<li><strong>心理安全感</strong> - 通过”斩杀线”概念，给用户明确的安全边界</li>
+<li><strong>税务集成</strong> - 内置 9 国税务计算器</li>
+<li><strong>模板快速上手</strong> - 6 套预置固定支出模板</li>
+<li><strong>无压力体验</strong> - 不批判用户的消费行为，只提供客观的数据支持</li>
+</ol>
+<h2 id="App-Store-信息"><a href="#App-Store-信息" class="headerlink" title="App Store 信息"></a>App Store 信息</h2><ul>
+<li><strong>Bundle ID</strong>: <code>gxlself.slay.the.line</code></li>
+<li><strong>App Store ID</strong>: <code>6759259799</code></li>
+<li><strong>平台</strong>: iOS 16.0+ &#x2F; macOS 14.0+</li>
+<li><strong>价格</strong>: 付费应用</li>
+</ul>
+<hr>
+<p><em>远离斩杀线，掌控你的财务自由。</em></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-08-29T05:40:33.000Z" title="2020/8/29 13:40:33">2020-08-29</time>发表</span><span class="level-item"><time dateTime="2026-03-02T14:11:38.593Z" title="2026/3/2 22:11:38">2026-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/gRPC/">gRPC</a></span><span class="level-item">9 分钟读完 (大约1361个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2020/08/29/grpc-web%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E8%90%BD%E5%9C%B0%E4%BD%BF%E7%94%A8/">gRpc-web在项目中的落地使用</a></p><div class="content"><h1 id="gRPC概念"><a href="#gRPC概念" class="headerlink" title="gRPC概念"></a>gRPC概念</h1><hr>
+<p>gRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP&#x2F;2 设计。目前提供 C、Java 和 Go 语言版本，分别是：grpc, grpc-java, grpc-go. 其中 C 版本支持 C, C++, Node.js, Python, Ruby, Objective-C, PHP 和 C# 支持.</p>
+<h2 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h2><p>后端项目繁多，算法部门要将旧有项目进行gRPC化，使用gRPC能够高效的在服务端间进行通信，所以，为了配合后端的gRPC更改，前端也使用gRPC-web，进行开发，与后端进行请求。 第一次接到这个需求，便开始了大量的gRPC的文档探索，以及将github的两个gRPC-web项目进行clone，然后深读代码，并进行尝试。项目使用react+antd+typescript全新搭建，按着文档进行依赖下载，也安装了go，本着自己完全跑一遍的心态试了一次，发现，这个项目过于久老，有个go的依赖一直出错。所以放弃了对这个本地调试，跑一遍demo的心态。 后端大哥本身是开发Go的，所以，他电脑装的比较齐全，提前踩好坑进行开发了，定义了一堆PB文件，然后开始发给我生成好的对应的ts以及js文件，这就让我不用再去纠结使用grpc github的仓库进行启动，并去自己操作一遍。   然后，开始开心的前端踩坑时刻，文档估计很久没更新了，使用的grpc-web库是0.4.0的版本，以下是我从官网拉过来的依赖文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;grpc-web-commonjs-example&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;google-protobuf&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.6.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;grpc-web&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.4.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;browserify&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^16.2.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webpack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^4.16.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webpack-cli&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.1.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>前面也说了，这个文档大概很久没更新了，所以我安装后调用grpc的时候一直报错，百思不得其姐，只能在issue中查找对应的信息，这方面，国内项目看起来几乎没人使用，都是外国大哥们在使用，所以找的也是比较费力，总算是在茫茫issue中一眼看中了一个解答，那就是使用新的grpc-web库进行处理，这让茫然的我看到了一丝丝希望，果断将项目中的grpc-web库更新到了1.0.0</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;google-protobuf&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.6.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;grpc-web&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^1.0.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>终于不负我所寄托，这次终于是接通了，让人欣喜。</p>
+<h2 id="grpc-web的使用"><a href="#grpc-web的使用" class="headerlink" title="grpc-web的使用"></a>grpc-web的使用</h2><p>使用方法主要是针对PB文件展开，后端生成的PB文件包含：</p>
+<ol>
+<li>定义方法，属性的PB文件</li>
+<li>定义请求client请求的PB文件</li>
+</ol>
+<p>所以封装请求，主要是依靠将定义请求的PB文件进行导入，并按需处理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">// 这是生成的client请求PB文件</span><br><span class="line">import * as grpcWeb from &#x27;grpc-web&#x27;;</span><br><span class="line">import * as common_pb from &#x27;./common_pb&#x27;;</span><br><span class="line">import &#123; UserLogin &#125; from &#x27;./bisys_pb&#x27;;</span><br><span class="line">// 请求实体</span><br><span class="line">export class UserBehaviorClient &#123; </span><br><span class="line">  constructor (hostname: string,</span><br><span class="line">               credentials?: null  &#123; [index: string]: string; &#125;,</span><br><span class="line">               options?: null  &#123; [index: string]: string; &#125;);</span><br><span class="line"></span><br><span class="line">  login(</span><br><span class="line">    request: UserLogin, // 请求参为UserLogin </span><br><span class="line">    metadata: grpcWeb.Metadata  undefined,</span><br><span class="line">    callback: (err: grpcWeb.Error,</span><br><span class="line">               response: RespLoginedMsg) =&gt;; void</span><br><span class="line">  ): grpcWeb.ClientReadableStream;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//?这是定义请求参的PB文件，请求参是 UserLogin 对象</span><br><span class="line">import * as jspb from &quot;google-protobuf&quot;</span><br><span class="line">import * as common_pb from &#x27;./common_pb&#x27;;</span><br><span class="line"></span><br><span class="line">export class UserLogin extends jspb.Message &#123;</span><br><span class="line">  getAccount(): string;</span><br><span class="line">  setAccount(value: string): UserLogin;</span><br><span class="line"></span><br><span class="line">  getPassword(): string;</span><br><span class="line">  setPassword(value: string): UserLogin;</span><br><span class="line"></span><br><span class="line">  getToken(): string;</span><br><span class="line">  setToken(value: string): UserLogin;</span><br><span class="line"></span><br><span class="line">  serializeBinary(): Uint8Array;</span><br><span class="line">  toObject(includeInstance?: boolean): UserLogin.AsObject;</span><br><span class="line">  static toObject(includeInstance: boolean, msg: UserLogin): UserLogin.AsObject;</span><br><span class="line">  static serializeBinaryToWriter(message: UserLogin, writer: jspb.BinaryWriter): void;</span><br><span class="line">  static deserializeBinary(bytes: Uint8Array): UserLogin;</span><br><span class="line">  static deserializeBinaryFromReader(message: UserLogin, reader: jspb.BinaryReader): UserLogin;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// 这是自己封装的service</span><br><span class="line">import &#123; baseUrl &#125; from &#x27;@/config/base&#x27;;</span><br><span class="line">import &#123; UserLogin &#125; from &#x27;@/_proto/login/bisys_pb&#x27;;</span><br><span class="line">import &#123; UserBehaviorPromiseClient &#125; from &#x27;@/_proto/login/bisys_grpc_web_pb&#x27;;</span><br><span class="line"></span><br><span class="line">// 自己定义的interface</span><br><span class="line">export interface LoginParamsType &#123;</span><br><span class="line">  userName: string;</span><br><span class="line">  password: string;</span><br><span class="line">  token: string;</span><br><span class="line">&#125;</span><br><span class="line">export async function fakeAccountLogin(params: LoginParamsType) &#123;</span><br><span class="line">  // 首先引入对应的client实例化</span><br><span class="line">  const userbehavior: UserBehaviorPromiseClient = new UserBehaviorPromiseClient(baseUrl);</span><br><span class="line">  // 对请求参进行实例化</span><br><span class="line">  const uselogin: UserLogin = new UserLogin();</span><br><span class="line">  // 请求参的值赋值方式，写过java的 肯定很熟悉，这是对象的set操作</span><br><span class="line">  // 看到这里，是不是想说取值也是get操作？是的！</span><br><span class="line">  uselogin.setAccount(params.userName);</span><br><span class="line">  uselogin.setPassword(params.password);</span><br><span class="line">  uselogin.setToken(params.token);</span><br><span class="line">  return userbehavior.login(uselogin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//?使用该请求的地方?上面service已经对登录方法进行封装?所以在使用接口的地方直接引入</span><br><span class="line">import?&#123; fakeAccountLogin &#125;?from?&#x27;@/service/login&#x27;;</span><br><span class="line">import &#123; RespLoginedMsg &#125; from &#x27;@/_proto/login/bisys_pb&#x27;;</span><br><span class="line"></span><br><span class="line">const response: RespLoginedMsg = fakeAccountLogin();</span><br><span class="line">// 到这里，基本上已经能够调通了，取值上面也说了，是get操作，但是grpc的数据流是二进制的，</span><br><span class="line">// 所以虽然使用get操作能够取到对应的值，但是并不是我们常见的json格式，</span><br><span class="line">// 这里就需要用到PB文件中定义的toObject()方法 这是你看到的就是平时请求返回的json格式</span><br><span class="line">// 到这里，基本grpc你已经可以使用了 并且个人感觉很舒服，毕竟和TS搭配，</span><br><span class="line">// 所以，这样写也避免了前端很多时候会传值出问题的情况，个人比较喜欢</span><br><span class="line">console.log(&#x27;response ===&gt;&#x27;, response.toObject())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="gRPC的部署"><a href="#gRPC的部署" class="headerlink" title="gRPC的部署"></a>gRPC的部署</h2><p><a target="_blank" rel="noopener" href="https://github.com/grpc/grpc-web/blob/master/net/grpc/gateway/examples/echo/nginx.conf">部署这个grpc时的Nginx配置</a> envoy、grpcproxy代理</p></div><a class="article-more button is-small is-size-7" href="/blog/blog/2020/08/29/grpc-web%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E8%90%BD%E5%9C%B0%E4%BD%BF%E7%94%A8/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-09-28T08:35:13.000Z" title="2018/9/28 16:35:13">2018-09-28</time>发表</span><span class="level-item"><time dateTime="2026-03-02T13:50:43.715Z" title="2026/3/2 21:50:43">2026-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="level-item">14 分钟读完 (大约2144个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2018/09/28/%E7%8E%A9%E8%BD%AC%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/">玩转小程序云开发</a></p><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。"><a href="#好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。" class="headerlink" title="好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。"></a>好久没写小程序的文章了，最近小程序变动也比较大。最主要的是我之前也曾写过个人如果开发小程序，可以使用Bmob免费的服务去开发自己的一套小程序，Bmob提供了免费的云函数以及数据库（20G空间）。But！！！微信小程序推出了自己的云开发服务，虽然数据库只有5G的空间，但是对于个人开发基本上足够使用，20支云函数接口以及云存储（相当于OSS服务器一样存放图片json文件等），以及用户管理。</h3><hr>
+<h3 id="1-先来玩玩云函数"><a href="#1-先来玩玩云函数" class="headerlink" title="1. 先来玩玩云函数"></a>1. 先来玩玩云函数</h3><p>云函数是什么呢？估计很多玩过阿里云以及腾讯云的人已经对这个名词早已很熟悉。一种无需服务器的执行环境，平台会给出它支持的语言以及核心的代码，即可以在服务商提供的设施上弹性、安全的运行。这个很大程度上省却了很多开发部署工作，用过的都说好（假的）。 小程序内部提供了专门用于云函数调用的API，而我们只需要在云函数内将每次获取到的appId以及openId不再需要后台经过一系列鉴定加密就可以获取到可信任的用户登录状态！！！这个是最主要的，再之前利用Bmob也好，自己开发也好，这个是必备的，具体前往微信登录流程查看。现在利用小程序本身的云函数，省去了大量工作，真的是个人开发者的福音。 废话这么多，赶紧开始第一个云函数的添加以及调用吧 —-&gt;</p>
+<hr>
+<p>  配置云开发： 第一步：?project.config.json?中进行添加字段?”cloudfunctionRoot”: “cloudfunctions&#x2F;“??这个字段主要是为了指定存放云函数的文件夹?”cloudfunctions&#x2F;“?<img src="/blog/images/06bce6a378.png"> 第二步：?app.json?中添加?”cloud”: true?指定是云开发模式 <img src="/blog/images/43f80bf697.png"> 第三步： 添加云函数 <img src="/blog/images/259d10e04a.png"> 第四步：添加对应的函数后，会下载依赖，这一步玩过node及npm的都知道，就是下载依赖，现在下载的是微信小程序官方的sdk。。。 <img src="/blog/images/a7c076febb.png"><a target="_blank" rel="noopener" href="http://https//img2018.cnblogs.com/blog/1333487/201809/1333487-20180928231832055-537545509.png">http://https://img2018.cnblogs.com/blog/1333487/201809/1333487-20180928231832055-537545509.png</a> 等下载完成后，点开云开发控制台的云函数一栏就会发现函数名称已经有了test这个云函数了。。。具体看下图所示： <img src="/blog/images/e83fc74f40.png"> 这个test云函数就是我们刚刚添加的云函数，此时在开发者工具中打开test目录下的index.js文件，就可以进行返回我们需要返回的内容。。。如下：测试 <img src="/blog/images/da7ec32786.png"> 这里如果是利用了获取授权的按钮之后就会在return中返回用户登录后的openId和appId，所以我们就return默认的event对象以及context（上下文）对象。主要是为了看看小程序默认提供的对象包含了什么，我们可以用什么？？？ 保存完了，还不够因为这个云函数我们都说了是小程序提供的服务平台来运行我们做的类似于接口的函数，所以我们必须得上传，具体看下图： <img src="/blog/images/551e0d7b36.png"> 等待上传完毕，在pages下index.wxml中需要做的是</p>
+<p><button open-type="getUserInfo" bindgetuserinfo="getUserInfgo">授权登录</button></p>
+<p>由于获取授权需要配合点击后js的操作，所以在index.js中添加对应的getUserInfo的方法，并且注意这里的wx.cloud.callFunction方法，因为这是调用云函数的方法。不可忽视~~~</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>getUserInfo: function(e){<br>    wx.cloud.callFunction({<br>      name: “test”,&#x2F;&#x2F;这里填写云函数的名字<br>      data: {<br>        userInfo: e &#x2F;&#x2F; 这里是把参数e直接传给test函数处理<br>      },<br>      success: res &#x3D;&gt; {<br>        console.log(res) &#x2F;&#x2F; 返回的文本如下图所示：<br>      },<br>      fail: err &#x3D;&gt; {<br>        console.log(err)<br>      }<br>    })<br>  }</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p><img src="/blog/images/5427558a18.png"> 可以看到输出的信息中会返回用户的openId以及appId还有对应云函数认证的信息。。。具体的实际可以自行测试查看，这里不做进一步探测… 这里云函数已经相信大家会玩了。。。就不再做其他的一一测试以及讲解。</p>
+<hr>
+<h3 id="2-数据库"><a href="#2-数据库" class="headerlink" title="2. 数据库"></a>2. 数据库</h3><p>对于数据库我相信大家都早已用的不能再熟悉，mySql， SQLServer， Oracle， MongoDb， indexDb等等。。。。接下来带着大家玩玩这个微信云开发提供的数据库。。。 云开发提供的应该是类似于NoSql类型的数据库，存储的是JSON对象。一个数据库也是多个集合（相思雨MongoDb） 接下来让我们开始快乐的使用这个数据库吧~~~</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>&#x2F;&#x2F;首先  要实例一个数据库对象</p>
+<p>let db &#x3D; wx.cloud.database();<br>db.collection(‘counters’).add({<br>      data: {<br>        count: 1<br>      },<br>      success: res &#x3D;&gt; {<br>        &#x2F;&#x2F; 在返回结果中会包含新创建的记录的 _id<br>        this.setData({<br>          counterId: res._id,<br>          count: 1<br>        })<br>        wx.showToast({<br>          title: ‘新增记录成功’,<br>        })<br>        console.log(‘[数据库] [新增记录] 成功，记录 _id: ‘, res._id)<br>      },<br>      fail: err &#x3D;&gt; {<br>        wx.showToast({<br>          icon: ‘none’,<br>          title: ‘新增记录失败’<br>        })<br>        console.error(‘[数据库] [新增记录] 失败：’, err)<br>      }<br>    })</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p><img src="/blog/images/b9f75e92a6.png"> 这是利用添加数据的方法进行添加的数据，此时可以在云开发控制台看到对应得数据：下图—》 <img src="/blog/images/07079b9363.png"> 此时可以看到插入进去的数据。。。接下来可以看看增删改查的其余操作：</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>&#x2F;&#x2F;查询数据：<br>const db &#x3D; wx.cloud.database()<br>    &#x2F;&#x2F; 查询当前用户所有的 counters<br>    db.collection(‘counters’).where({<br>      _openid: this.data.openid<br>    }).get({<br>      success: res &#x3D;&gt; {<br>        this.setData({<br>          queryResult: JSON.stringify(res.data, null, 2)<br>        })<br>        console.log(‘[数据库] [查询记录] 成功: ‘, res)<br>      },<br>      fail: err &#x3D;&gt; {<br>        wx.showToast({<br>          icon: ‘none’,<br>          title: ‘查询记录失败’<br>        })<br>        console.error(‘[数据库] [查询记录] 失败：’, err)<br>      }<br>})</p>
+<p>&#x2F;&#x2F; 修改数据<br>const db &#x3D; wx.cloud.database()<br>    const newCount &#x3D; this.data.count + 1<br>    db.collection(‘counters’).doc(this.data.counterId).update({<br>      data: {<br>        count: newCount<br>      },<br>      success: res &#x3D;&gt; {<br>        this.setData({<br>          count: newCount<br>        })<br>      },<br>      fail: err &#x3D;&gt; {<br>        icon: ‘none’,<br>        console.error(‘[数据库] [更新记录] 失败：’, err)<br>      }<br> })    </p>
+<p>&#x2F;&#x2F;  删除数据<br>const db &#x3D; wx.cloud.database()<br>      db.collection(‘counters’).doc(this.data.counterId).remove({<br>        success: res &#x3D;&gt; {<br>          wx.showToast({<br>            title: ‘删除成功’,<br>          })<br>          this.setData({<br>            counterId: ‘’,<br>            count: null,<br>          })<br>        },<br>        fail: err &#x3D;&gt; {<br>          wx.showToast({<br>            icon: ‘none’,<br>            title: ‘删除失败’,<br>          })<br>          console.error(‘[数据库] [删除记录] 失败：’, err)<br>        }<br> })</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>当然，在数据库操作之前需要利用云函数login获取对应的openId， 获取方法请细看上方云函数test部分。。。</p>
+<hr>
+<p> </p>
+<h3 id="3-存储部分"><a href="#3-存储部分" class="headerlink" title="3. 存储部分"></a>3. 存储部分</h3><p>小程序只有2M的空间，个人开发要么将图片放在这小小的2M内，要么自己配置https证书的域名，再要么利用github将自己的域名免费转为https，不会玩的可以私信我，我可以再单独写一篇将自己的域名利用github穿https证书的方法，哈哈（略过）。将图片放github不用自己的域名也行，但是利用github就要忍受它的网速慢以及随时被墙的可能性。。。 现在我们来用云开发提供的存储：</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>wx.chooseImage({<br>      count: 1,<br>      sizeType: [‘compressed’],<br>      sourceType: [‘album’, ‘camera’],<br>      success: function (res) {</p>
+<pre><code>    wx.showLoading(&#123;
+      title: &#39;上传中&#39;,
+    &#125;)
+
+    const filePath = res.tempFilePaths\[0\]
+    
+    // 上传图片
+    const cloudPath = &#39;my-image&#39; + filePath.match(/\\.\[^.\]+?$/)\[0\]
+    wx.cloud.uploadFile(&#123;
+      cloudPath,
+      filePath,
+      success: res =&gt; &#123;
+        console.log(&#39;\[上传文件\] 成功：&#39;, res)
+
+        let fileId = res.fileID
+        let cloudPath = cloudPath
+        let imagePath = filePath
+        
+        console.log( fileId )
+        console.log( cloudPath )
+       console.log( imagePath )
+      &#125;,
+      fail: e =&gt; &#123;
+        console.error(&#39;\[上传文件\] 失败：&#39;, e)
+        wx.showToast(&#123;
+          icon: &#39;none&#39;,
+          title: &#39;上传失败&#39;,
+        &#125;)
+      &#125;,
+      complete: () =&gt; &#123;
+        wx.hideLoading()
+      &#125;
+    &#125;)
+
+  &#125;,
+  fail: e =&gt; &#123;
+    console.error(e)
+  &#125;
+&#125;)
+</code></pre>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>代码已经奉上，上传成功后再跑去云开发控制台查看一番~~~ <img src="/blog/images/b8a60463ff.png"> 好了，云开发已经基本上完成，当然云存储也可以存储json文件，然后请求静态数据~~~看自己的需要了。 云开发是将前端开发者摆到了更重要的地位，不再很依赖于服务端。这真的是一个福利~~~~ OVER~~SLEEP!!!</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-09-24T07:10:02.000Z" title="2018/9/24 15:10:02">2018-09-24</time>发表</span><span class="level-item"><time dateTime="2026-03-02T13:50:43.712Z" title="2026/3/2 21:50:43">2026-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/Javascript/">Javascript</a></span><span class="level-item">10 分钟读完 (大约1558个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2018/09/24/h5%E4%B8%AD%E7%9A%84%E6%A1%8C%E9%9D%A2%E9%80%9A%E7%9F%A5notification/">H5中的桌面通知Notification</a></p><div class="content"><h2 id="H5中的桌面通知Notification"><a href="#H5中的桌面通知Notification" class="headerlink" title="H5中的桌面通知Notification"></a>H5中的桌面通知Notification</h2><h4 id="前言-对于一个前段开发者-逛网页总会留意一些新奇的功能-对于上班总会用到Teambition的我-总是能收到Notification…所以今天就来研究下这个H5功能…"><a href="#前言-对于一个前段开发者-逛网页总会留意一些新奇的功能-对于上班总会用到Teambition的我-总是能收到Notification…所以今天就来研究下这个H5功能…" class="headerlink" title="前言:?对于一个前段开发者,逛网页总会留意一些新奇的功能,对于上班总会用到Teambition的我,总是能收到Notification…所以今天就来研究下这个H5功能…"></a>前言:?对于一个前段开发者,逛网页总会留意一些新奇的功能,对于上班总会用到Teambition的我,总是能收到Notification…所以今天就来研究下这个H5功能…</h4><hr>
+<p>  1. 实例一个Notification</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>let n &#x3D; new Notification(<br>　　“这是一个通知消息”,                  &#x2F;&#x2F;这是必选Title  一定会显示的通知标题<br>　　{<br>  　　 icon: “xxx.png”,               &#x2F;&#x2F; 这个icon是用来显示通知中的左边图片<br>  　　 body: “你好啊,我是xxx”,      　　&#x2F;&#x2F; 通知中的内容字符<br>　　　 dir: auto,　　　　　　　　　　　　　&#x2F;&#x2F; 文字的方向 值包含: auto(自动), ltr(从左到右), rtl(从右向左)<br>　　　 tag: “gxlself”　　　　　　　　　　&#x2F;&#x2F;  给与这个通知消息一个ID, 用来对这个通知消息进行 刷新.移除.替换 等操作<br>　　　　&#x2F;&#x2F; long: “en-US”　　　　　　　　　　　　　　　&#x2F;&#x2F;lang字段 需要参考<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/bcp47">https://tools.ietf.org/html/bcp47</a> 并不是必须 没看出啥作用…<br>　　　　&#x2F;&#x2F; …　　　　　　　　　　　　&#x2F;&#x2F; 其余可选属性见下实例属性<br>　　}<br>)<br>访问对应的实例属性:<br>n.actions &#x2F;&#x2F; 一个只读的NotificationAction对象数组。每一个对象描述用户可以在一个通知中选择的单个操作。<br>n.image   &#x2F;&#x2F; 通知的一部分显示的图像的URL<br>n.badge   &#x2F;&#x2F; 当没有足够的空间显示通知本身时，用于表示通知的图像的URL。<br>n.permission   &#x2F;&#x2F; 有三个值 <code>granted</code>, <code>denied</code>, 或<code>default  当状态值为granted时可以发送通知消息  default默认用户没处理  denied 用户拒绝  </code> n.renotify &#x2F;&#x2F; 布尔值。新通知出现的时候是否替换之前的。如果设为<code>true</code>，则表示替换，表示当前标记的通知只会出现一个。注意这里的“当前标记”没？没错，<code>true</code>参数要想起作用，<code>tag必须</code>需要设置属性值。 n.requireInteraction &#x2F;&#x2F; 布尔值, 指的是通知是否保持活动直到用户点击或取消通知 而不是自动关闭.. n.silent &#x2F;&#x2F; 布尔值。通知出现的时候，是否要有声音。默认<code>false</code>, 表示无声。 n.timestamp &#x2F;&#x2F;通知创建或者可以使用的时间。 n.data &#x2F;&#x2F; 任意类型和通知相关联的数据。 n.vibrate &#x2F;&#x2F; 通知显示时候，设备震动硬件需要的震动模式。所谓振动模式，指的是一个描述交替时间的数组，分别表示振动和不振动的毫秒数，一直交替下去。例如[200, 100, 200]表示设备振动200毫秒，然后停止100毫秒，再振动200毫秒。 (移动端) n.sound &#x2F;&#x2F; 字符串。音频地址。表示通知出现要播放的声音资源。 n.sticky &#x2F;&#x2F; 通知吸附不容易被清除… (移动端) n.noscreen &#x2F;&#x2F; 布尔值。是否不再屏幕上显示通知信息。默认<code>false</code>, 表示要在屏幕上显示通知内容。(移动端) n. 此时实例 n 有四个事件处理: 1&gt; onclick 用户对通知信息的点击事件 2&gt; onshow 通知消息展示之后触发的事件 3&gt; onerror 遇到错误会触发的事件 4&gt; onclose close事件的处理</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>2. Notification对象会有什么属性&#x2F;方法呢?利用控制台中的window对象输出点开查看就可以看到: <img src="/blog/images/4179227bd1.jpg"> 值得注意的是: requestPermission()方法仅在Notification对象有效,实例对象无效!!!这个方法是用来向用户申请显示通知的权限,只能被用户主动去调用(在页面onload中可以调用,可以向用户申请,之后再去发送…)   实例对象拥有的方法有: (1). close()? 用于关闭通知消息 –&gt; 也可以在onshow方法加延迟调用,提高用户体验感… (2). addEventListener() 监听事件(这个通用方法) (3). removeEventListener 卸载监听事件(通用,同上) (4). dispatchEvent 分派事件(同上)   接下来,写一个js测试, 如果使用的是谷歌浏览器,建议在设置中显示通知将本地服务地址加入允许通知 但是,http的域名在谷歌浏览器被默认关闭,还不允许更改,查看谷歌浏览器控制台有警告信息—&gt; index.js:78 [Deprecation] The Notification API may no longer be used from insecure origins. You should consider switching your application to a secure origin, such as HTTPS. See <a target="_blank" rel="noopener" href="https://goo.gl/rStTGz">https://goo.gl/rStTGz</a> for more details. 嗯,好吧,让加https证书,真的是有毒…虽然在自己的主页中添加该功能也只能在火狐浏览器爽一爽…. (腾讯云有免费一年的ssl证书,可自己进行安装…)</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>&#x2F;&#x2F; index.js<br>window.onload &#x3D; function(){<br>　　let gxlself &#x3D; new Gxlself()<br>　　gxlself.requestPermission()<br>　　setTimeout(()&#x3D;&gt;{<br>　　　　gxlself.showNotification()<br>　　},3000)<br>}</p>
+<p>class Gxlself{<br>　　 constructor(){<br>　　　　this.isNotificationSupported &#x3D; “Notification” in window;<br>　　 }<br>    isPermissionGranted(){<br>        return Notification.permission &#x3D;&#x3D;&#x3D; ‘granted’;<br>    }<br>    requestPermission(){<br>        if(!this.isNotificationSupported){<br>            return;<br>        }<br>        Notification.requestPermission(status&#x3D;&gt;{<br>            let permission &#x3D; Notification.permission;<br>        })<br>    }<br>    showNotification(){<br>        if (!this.isNotificationSupported) {<br>            return;<br>        }<br>        if (!this.isPermissionGranted()) {<br>            return;<br>        }<br>        var n &#x3D; new Notification(“gxlself对您发来问候”, {<br>            icon : ‘gxlself.png’,<br>            body : ‘欢迎来访,鄙人万分感激! 点击即可跳转至我的博客页面~’<br>        });<br>        n.onshow &#x3D; function () {<br>            console.log(‘gxlself已经发送通知信息’);<br>            setTimeout(function() {<br>                n.close();<br>            }, 5000);<br>        }<br>        n.onclick &#x3D; function () {<br>            location.href &#x3D; ‘<a href="http://gxlself.com/blog">http://gxlself.com/blog</a>‘<br>            n.close()<br>        }<br>        n.onerror &#x3D; function (err) {<br>            console.log(err)<br>        }<br>        n.onclose &#x3D; function () {<br>            console.log(‘gxlself消息窗口关闭’)<br>        }<br>    }<br>}</p>
+<p><img src="/blog/images/48304ba5e6.gif" alt="复制代码"></p>
+<p>这是火狐浏览器执行后的效果展示: <img src="/blog/images/6e034260c3.png">   再来看看谷歌本地跑的效果:(域名已经被默认拦截关闭,上面已经说明,不再重复) <img src="/blog/images/3a68de8a09.png"> 谷歌的效果其实挺好看的,嗯…只是一个https把我给屏蔽了? ?哎… ——-? 桌面版应用 ———– 当你要在开放 web 应用中使用通知时，请确保将?<code>desktop-notification</code>?权限添加到你的 manifest 文件中。通知可以被用于任何权限级别，hosted 或更高。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　&quot;permissions&quot;: &#123;</span><br><span class="line">  　　  &quot;desktop-notification&quot;:&#123;&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>  这个Notification比较好玩,也是未来发送消息的一个重要的一块,留此记录…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-06-15T11:36:00.000Z" title="2018/6/15 19:36:00">2018-06-15</time>发表</span><span class="level-item"><time dateTime="2026-03-02T13:50:43.713Z" title="2026/3/2 21:50:43">2026-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a></span><span class="level-item">6 分钟读完 (大约944个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2018/06/15/%E5%88%A9%E7%94%A8bomb%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F/">利用Bomb打造自己的小程序</a></p><div class="content"><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/" title="小程序开发">小程序开发</a></li>
+<li><a target="_blank" rel="noopener" href="http://doc.bmob.cn/" title="Bmob免费后端云开发">Bomb免费后端云开发</a></li>
+</ul>
+<p>首先,小程序的开发已是热门,一个前段技术人员必备的技术就是开发小程序.在这里推荐一个<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wGxtT2w2_9gJcjHGFsguuw">入门小程序文章(连胜出品)</a>。</p>
+<p>对于小程序的入门开发就不再做详细介绍,这里针对Bmob辅助开发小程序进行介绍。</p>
+<p>　　1. Bmob是什么?</p>
+<p>　　Bmob 为小程序开发提供一体化的后端云服务，免去了服务器维护、证书配置、数据存储互通等繁琐的工作，大幅度提高开发效率，减少研发时间和成本。接入 Bmob，还能同时打通小程序、App、Web 之间的数据，提高运营效率。</p>
+<p>　　利用Bomb可以做到WEB，APP，小程序共享一套数据，并且是免费的提供20G的存储空间，对于个人开发足以。</p>
+<p>　　2. Bmob开发</p>
+<p>　　-&gt;注册Bmob</p>
+<p>　　-&gt;创建一个应用</p>
+<p>　　<img src="/blog/images/905bbb9392.png"></p>
+<p>　　接着将自己注册的小程序对应的AppId以及AppSecert填入Bmob,如下图:</p>
+<p>　　<img src="/blog/images/21504491a3.png"></p>
+<p>　　之后,在应用秘钥中获取Bomb提供的Application ID和REST API Key,这是进入Bmob的凭证,注意保护…</p>
+<p>　　<img src="/blog/images/8105714cfe.png"></p>
+<p>　　此时,下载Bmob SDK(Bomb.min.js),将此SDK放入utils文件下,这样就可以在app.js中进行引入</p>
+<p>var Bmob &#x3D; require(‘..&#x2F;..&#x2F;utils&#x2F;bmob.js’);<br>Bmob.initialize(“你的Application ID”, “你的REST API Key”);</p>
+<p>　　此时,可以进行对数据的查询:</p>
+<p>var Diary &#x3D; Bmob.Object.extend(“diary”);  </p>
+<p>&#x2F;&#x2F;利用每一条对应的ObjectId查询 var query &#x3D; new Bmob.Query(Diary);<br> 　　query.get(“4edc3f6ee9”, {<br>      success: function(result) { &#x2F;&#x2F; The object was retrieved successfully.<br>        console.log(“该日记标题为”+result.get(“title”));<br>      },<br>      error: function(result, error) {<br>        console.log(“查询失败”);<br>      }<br>    });  </p>
+<p>&#x2F;&#x2F;利用其它字段进行查询<br>query.equalTo(“title”, “bmob”);&#x2F;&#x2F;利用title字段(示例)<br>query.find({<br>　　success: function(results) {<br>　　　　console.log(“共查询到 “ + results.length + “ 条记录”); &#x2F;&#x2F; 循环处理查询到的数据<br>　　　　for (var i &#x3D; 0; i &lt; results.length; i++) {<br>　　　　　　var object &#x3D; results[i]; console.log(object.id + ‘ - ‘ + object.get(‘title’)); }<br>　　},<br>　　error: function(error) {<br>　　　　console.log(“查询失败: “ + error.code + “ “ + error.message);<br>　　}<br>});  </p>
+<p>　　除了查询,还可以进行对应的增删改,eg:</p>
+<p>&#x2F;&#x2F;增加数据   创建类和实例<br>    var Diary &#x3D; Bmob.Object.extend(“diary”); var diary &#x3D; new Diary();<br>    diary.set(“title”,”hello”);<br>    diary.set(“content”,”hello world”); &#x2F;&#x2F;添加数据，第一个入口参数是null<br>    diary.save(null, {<br>        success: function(result) { &#x2F;&#x2F; 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据<br>            console.log(“日记创建成功, objectId:”+result.id);<br>        },<br>        error: function(result, error) { &#x2F;&#x2F; 添加失败<br>          console.log(‘创建日记失败’);</p>
+<pre><code>    &#125;
+&#125;);
+</code></pre>
+<p>&#x2F;&#x2F;删除数据 &#x2F;&#x2F;单个请求每次最多删除50条。<br> var query &#x3D; new Bmob.Query(‘diary’);<br> query.equalTo(“title”, “后端云”);<br>          query.find().then(function (todos) { return Bmob.Object.destroyAll(todos);<br>          }).then(function (todos) {<br>            console.log(todos); &#x2F;&#x2F; 删除成功<br>          }, function (error) { &#x2F;&#x2F; 异常处理<br> }); &#x2F;&#x2F; 更改数据<br>var Diary &#x3D; Bmob.Object.extend(“diary”); var Diary &#x3D; new Diary();<br>Diary.set(“title”, “111”);<br>Diary.set(“content”, “222”); &#x2F;&#x2F;添加数据<br>Diary.save(null, {<br>  success: function(result) { &#x2F;&#x2F; 修改数据<br>    result.set(“title”, “111”);<br>    result.set(“content”, “222”);<br>    result.save();<br>  }<br>})</p>
+<p>　　当然,Bmob服务不至于数据服务,只是更多的我们操作数据多一点.</p>
+<p>　　例如:短信验证码服务:</p>
+<p>Bmob.Sms.requestSmsCode({“mobilePhoneNumber”: “131xxxxxxxx”} ).then(function(obj) {<br>  console.log(“smsId:”+obj.smsId); &#x2F;&#x2F; }, function(err){<br>  console.log(“发送失败:”+err);<br>});</p>
+<p>返回数据:<br>{ “smsId”: 1232222 }</p>
+<p>　　还有更多好玩的,不再做一一展示,Bmob官方文档比较浅显易懂..</p>
+<p><img src="/blog/images/ce64fb5e6d.png"></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-05-31T12:25:00.000Z" title="2018/5/31 20:25:00">2018-05-31</time>发表</span><span class="level-item"><time dateTime="2026-03-02T13:45:24.600Z" title="2026/3/2 21:45:24">2026-03-02</time>更新</span><span class="level-item"><a class="link-muted" href="/blog/categories/Javascript/">Javascript</a></span><span class="level-item">9 分钟读完 (大约1351个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/blog/blog/2018/05/31/%E5%8E%9F%E5%9E%8B%E7%AC%94%E8%AE%B0/">原型笔记</a></p><div class="content"><ul>
+<li>1. Object.getOwnPropertyNames()</li>
+</ul>
+<p> 在学习使用该方法的时候，查阅了《JavaScript高级程序设计》与 MDN 来综合学习。</p>
+<p> 先来看看MDN对其的表述:</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p> <code>obj:</code></p>
+<p>　　一个对象，其自身的可枚举和不可枚举属性的名称被返回。</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>　　  　　在给定对象上找到的属性对应的字符串数组。</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p> <code>Object.getOwnPropertyNames()</code> 返回一个数组，该数组对元素是 <code>obj</code>自身拥有的枚举或不可枚举属性名称字符串。 数组中枚举属性的顺序与通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in" title="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。"><code>for...in</code></a> 循环（或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" title="Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。"><code>Object.keys</code></a>）迭代该对象属性时一致。数组中不可枚举属性的顺序未定义。</p>
+<p> 同时,举出了几个例子来表显示,例如:</p>
+<p>var arr &#x3D; [“a”, “b”, “c”];<br>console.log(Object.getOwnPropertyNames(arr).sort()); &#x2F;&#x2F; [“0”, “1”, “2”, “length”] &#x2F;&#x2F; 类数组对象<br>var obj &#x3D; { 0: “a”, 1: “b”, 2: “c”};<br>console.log(Object.getOwnPropertyNames(obj).sort()); &#x2F;&#x2F; [“0”, “1”, “2”] &#x2F;&#x2F; 使用Array.forEach输出属性名和属性值<br>Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {<br>  console.log(val + “ -&gt; “ + obj[val]);<br>}); &#x2F;&#x2F; 输出 &#x2F;&#x2F; 0 -&gt; a &#x2F;&#x2F; 1 -&gt; b &#x2F;&#x2F; 2 -&gt; c &#x2F;&#x2F;不可枚举属性<br>var my_obj &#x3D; Object.create({}, {<br>  getFoo: {<br>    value: function() { return this.foo; },<br>    enumerable: false }<br>});<br>my_obj.foo = 1;</p>
+<p>console.log(Object.getOwnPropertyNames(my_obj).sort()); &#x2F;&#x2F; [“foo”, “getFoo”]</p>
+<p>　　正如：MDN上所述，该方法返回的是对象自身的可枚举与不可枚举属性，即返回的是一个数组。并且在查阅《JavaScript高级程序设计》这本书籍的时候,却发现了一个问题。</p>
+<p>function Person(){</p>
+<p>} </p>
+<p>Person.prototype.name &#x3D; ‘asfd’<br>Person.prototype.age &#x3D; 15<br>Person.prototype.sayName &#x3D; function () {<br>    console.log(this.name)<br>}</p>
+<p>var keys &#x3D; Object.getOwnPropertyNames(Person.prototype) console.log(keys)<br>&#x2F;&#x2F; 书籍中表述keys返回的是 [‘constructor’, ‘name’, ‘age’, ‘sayName’]</p>
+<p>&#x2F;&#x2F; 但是当将Person.property设置一个以对象字面量形式创建的对象时,就不再返回constructor. 书籍中已经解释此时的constructor不再指向Person &#x2F;&#x2F; 于是,我真的操作了一遍才发现,真的如此<br>&#x2F;&#x2F; 实例如下:<br>function Person(){ }<br>Person.prototype = {<br>     name: ‘zwj’,<br>     age: 21,<br>     say: function () {<br>        console.log(‘say’)<br>     }<br>}<br>var keys &#x3D; Object.getOwnPropertyNames(Person.property)<br>console.log(keys)<br>&#x2F;&#x2F; 此时返回的 [‘name’,’age’,’sayName’]</p>
+<p>　　我根据书中理解如下：设置一个以对象字面量形式创建的对象,虽然结果相同,但是constructor不再指向Person,这就涉及到原型链了</p>
+<p>　　首先,每个构造函数被创建的时候,同时就创建了一个构造函数对应的原型对象,即: 构造函数.prototype </p>
+<p>　　这个对象就会自动获得一个constructor属性,这个属性就是该对象指向构造函数的指针,你也可以试试输出: Person.prototype    Person.prototype.constructor     Person.prototype.constructor.prototype 等等,就会发现形成了一个闭环…</p>
+<p>　　这里我们使用的语法去接收属性值,本质上默写了prototype对象,这时候,改写的对象默认的constructor指向为Object构造函数,毕竟函数也是对象,在JS中一切皆为对象…</p>
+<p>　　所以如果我们通常为了在原型上进行大量的属性写入,就必须对这部分操作进行注意,需要在使用设置对象字面量方式之后手动为其添加constructor属性的指向,这样做的目的就是为了确保通过该属性能够访问到适当的值…</p>
+<p>　　当然你会觉得这样设置并不是完美,毕竟对于constructor这个属性,他应该是不可枚举的,此时,却是可枚举的,这是就需要我们使用Object.defineProperty()进行相应的设置.相应的代码如下:</p>
+<p>function Person(){<br>} &#x2F;&#x2F; 此时重写了prototype对象 constructor指向Object<br>Person.prototype &#x3D; {<br>  name: ‘Nick’,<br>  age: 15,<br>  sayName: function(){<br>    consolelog(this.name)<br>  }<br>} &#x2F;&#x2F; 对constructor进行设置修改<br>Object.defineProperty(Person.prototype, ‘constructor’, {<br>   enumerable: false,   &#x2F;&#x2F; 设置是否可枚举  false为不可枚举<br>   value: Person         &#x2F;&#x2F; 设置值为Person<br>}) &#x2F;&#x2F;可以通过definePrototype进行更改数据属性的共有6个,其余4个分别为: &#x2F;&#x2F; configurable  ———-&gt; 表示是否可以通过delete进行删除 默认为true &#x2F;&#x2F; writable        ———-&gt; 表示是否可以修改属性的值 默认为true<br>&#x2F;&#x2F; get     ———-&gt;   一个给属性提供 getter 的方法，如果没有 getter 则为 undefined。该方法返回值被用作属性值。默认为 undefined。<br>&#x2F;&#x2F; set   ——–&gt;  一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将接受唯一参数，并将该参数的新值分配给该属性。默认为 undefined。</p>
+<p>　　总结: 在进行创建构造函数的时候,以前习惯只是将constructor直接写在重写的prototype对象中,但是却忽略了其中最重要的一条信息,那就是constructor属性本身是不可枚举的属性,还需要更深一层的操作去设置constructor.看问题不能只看表面,更应该注重于内在…</p>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/blog/img/favicon.png" alt="Gxlself"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Gxlself</p><p class="is-size-6 is-block">个人创意开发者</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/blog/archives/"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/blog/categories/"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/blog/tags/"><p class="title">12</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/gxlself" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="GitHub" href="https://github.com/gxlself"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Discord" href="https://discord.gg/xEeV8PrK"><i class="fab fa-discord"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Email" href="mailto:gxlself@gmail.com"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/blog/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/categories/Javascript/"><span class="level-start"><span class="level-item">Javascript</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/gRPC/"><span class="level-start"><span class="level-item">gRPC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">小程序</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"><span class="level-start"><span class="level-item">工具推荐</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-09T09:45:00.000Z">2026-04-09</time></p><p class="title"><a href="/blog/blog/2026/04/09/%E7%9F%A5%E4%B9%8B-%E4%B8%80%E6%96%B9%E5%AE%A3%E7%BA%B8%E8%AE%B0%E5%BD%95%E6%89%80%E7%9F%A5/">知之 — 一方宣纸，记录所知</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-04-03T02:00:00.000Z">2026-04-03</time></p><p class="title"><a href="/blog/blog/2026/04/03/zu-%E4%BA%BA%E4%BB%8E%E4%BC%97%E6%97%8F-%E6%95%B0%E5%AD%97%E5%8C%96%E4%BA%B2%E6%83%85%E6%97%8F%E8%B0%B1/">zu — 人从众族，数字化亲情族谱与互认</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-18T02:00:00.000Z">2026-03-18</time></p><p class="title"><a href="/blog/blog/2026/03/18/Paste-macOS-clipboard-manager/">Paste — 轻量级隐私优先的 macOS 剪贴板管理器</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-14T02:00:00.000Z">2026-03-14</time></p><p class="title"><a href="/blog/blog/2026/03/14/G-Calc-Pro-%E5%85%A8%E8%83%BD%E5%88%9B%E6%84%8F%E8%AE%A1%E7%AE%97%E5%99%A8/">G Calc Pro — 全能创意计算器，覆盖全行业计算需求</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-02-25T02:00:00.000Z">2026-02-25</time></p><p class="title"><a href="/blog/blog/2026/02/25/Stay-Above-Kill-Line-%E8%BF%9C%E7%A6%BB%E6%96%A9%E6%9D%80%E7%BA%BF/">Stay Above Kill Line — 远离斩杀线，反向预算思维</a></p><p class="categories"><a href="/blog/categories/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">工具推荐</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/03/"><span class="level-start"><span class="level-item">三月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2018/09/"><span class="level-start"><span class="level-item">九月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2018/06/"><span class="level-start"><span class="level-item">六月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/archives/2018/05/"><span class="level-start"><span class="level-item">五月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/blog/tags/Flutter/"><span class="tag">Flutter</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/SwiftUI/"><span class="tag">SwiftUI</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/iOS/"><span class="tag">iOS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/macOS/"><span class="tag">macOS</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E5%89%AA%E8%B4%B4%E6%9D%BF/"><span class="tag">剪贴板</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E5%AE%B6%E6%97%8F/"><span class="tag">家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E5%BC%80%E6%BA%90/"><span class="tag">开源</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"><span class="tag">效率工具</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E6%97%8F%E8%B0%B1/"><span class="tag">族谱</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"><span class="tag">知识管理</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E8%AE%A1%E7%AE%97%E5%99%A8/"><span class="tag">计算器</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/%E9%A2%84%E7%AE%97%E7%AE%A1%E7%90%86/"><span class="tag">预算管理</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">广告</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3264212333548066" data-ad-slot="7871870988" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/"><img src="/blog/img/favicon.png" alt="Gxlself" height="28"></a><p class="is-size-7"><span>&copy; 2026 Gxlself</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2025 Gxlself · <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="nofollow noopener">晋ICP备17010620号</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/blog/js/column.js"></script><script src="/blog/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/blog/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/blog/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/blog/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/blog/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
