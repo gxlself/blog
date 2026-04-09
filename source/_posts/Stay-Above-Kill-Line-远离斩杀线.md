@@ -5,7 +5,6 @@ tags:
   - iOS
   - SwiftUI
   - 预算管理
-  - 开源
 categories:
   - 工具推荐
 ---
@@ -69,10 +68,6 @@ categories:
 - **App Store ID**: `6759259799`
 - **平台**: iOS 16.0+ / macOS 14.0+
 - **价格**: 付费应用
-
-## 开源地址
-
-🔗 [GitHub: gxlself/Stay-Above-Kill-Line](https://github.com/gxlself/Stay-Above-Kill-Line)
 
 ---
 

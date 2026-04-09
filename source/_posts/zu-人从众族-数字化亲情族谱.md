@@ -5,7 +5,6 @@ tags:
   - Flutter
   - 家族
   - 族谱
-  - 开源
 categories:
   - 工具推荐
 ---
@@ -53,12 +52,6 @@ zu/
 3. **离线优先** - Hive 本地存储，支持离线使用
 4. **精美动画** - flutter_animate 提供流畅的交互体验
 5. **二维码分享** - 支持 QR 码快速添加家族成员
-
-## 开源地址
-
-项目已开源，欢迎 Star 和贡献代码：
-
-🔗 [GitHub: gxlself/zu](https://github.com/gxlself/zu)
 
 ---
 

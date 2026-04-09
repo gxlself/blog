@@ -6,7 +6,6 @@ tags:
   - macOS
   - SwiftUI
   - 计算器
-  - 开源
 categories:
   - 工具推荐
 ---
@@ -111,10 +110,6 @@ categories:
 
 - **免费版**: 完整功能的标准与科学计算器、历史记录（最近20条）、基础单位转换
 - **专业版 (Pro)**: 一次性购买解锁所有专业模块、无限历史记录、高级定制功能
-
-## 开源地址
-
-🔗 [GitHub: gxlself/G-Calc-Pro](https://github.com/gxlself/G-Calc-Pro)
 
 ---
 
